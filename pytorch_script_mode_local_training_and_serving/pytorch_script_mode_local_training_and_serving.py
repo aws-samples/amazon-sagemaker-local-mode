@@ -6,6 +6,8 @@
 #       pip install boto3 sagemaker pandas matplotlib torch torchvision
 #       pip install 'sagemaker[local]'
 #   2. Docker Desktop has to be installed on your computer, and running.
+#   3. You should have AWS credentials configured on your local machine
+#      in order to be able to pull the docker image from ECR.
 ##############################################################################################
 
 import os
