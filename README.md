@@ -12,11 +12,11 @@ The repository contains the following resources:
 
 - **TensorFlow resources:**  
 
-  - [**TensorFlow Script Mode Training and Serving**](tensorflow_script_mode_local_training_and_serving):  This example shows a complete workflow for TensorFlow, showing how to train locally, on the SageMaker Notebook, to verify the training completes successfully. Then you train using SageMaker script mode, using on demand training instances. You continue training using SageMaker Managed Spot Training, simulating a spot interruption, and see how model training resumes from the latest epoch, based on the checkpoints saved in S3. Finally, you deploy the model and produce a confusion matrix.
+  - [**TensorFlow Script Mode Training and Serving**](tensorflow_script_mode_local_training_and_serving):  This example shows how to train and serve your model with TensorFlow and SageMaker script mode, on your local machine using SageMaker local mode.
   
 - **PyTorch resources:**  
 
-  - [**PyTorch Script Mode Training and Serving**](pytorch_script_mode_local_training_and_serving):  This example shows a complete workflow for PyTorch, showing how to train locally, on the SageMaker Notebook, to verify the training completes successfully. Then you train using SageMaker script mode, using on demand training instances. You continue training using SageMaker Managed Spot Training, simulating a spot interruption, and see how model training resumes from the latest epoch, based on the checkpoints saved in S3. Finally, you deploy the model and produce a confusion matrix.    
+  - [**PyTorch Script Mode Training and Serving**](pytorch_script_mode_local_training_and_serving):  This example shows how to train and serve your model with PyTorch and SageMaker script mode, on your local machine using SageMaker local mode.   
 
 - **Bring Your Own Container resources:**  
 
