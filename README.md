@@ -11,11 +11,11 @@ This repository examples will work in any IDE on your local machine.
 
 Here you can see a TensorFlow example running on PyCharm.
 
-#### SageMaker training in PyCharm
+#### SageMaker local mode training in PyCharm
 
 ![SageMaker local mode training in PyCharm](img/pycharm_sagemaker_local_training.png)
 
-#### SageMaker serving in PyCharm
+#### SageMaker local mode serving in PyCharm
 
 ![SageMaker local mode serving in PyCharm](img/pycharm_sagemaker_local_serving.png)
 
