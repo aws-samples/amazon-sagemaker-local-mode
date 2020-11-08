@@ -6,7 +6,7 @@ This repository contains examples and related resources showing you how to train
 
 The local mode in the Amazon SageMaker Python SDK can emulate CPU (single and multi-instance) and GPU (single instance) SageMaker training jobs by changing a single argument in the TensorFlow, PyTorch or MXNet estimators.  To do this, it uses Docker compose and NVIDIA Docker.  It will also pull the Amazon SageMaker TensorFlow, PyTorch or MXNet containers from Amazon ECS, so you’ll need to be able to access a public Amazon ECR repository from your local environment.
 
-## SageMaker training and serving in PyCharm
+## SageMaker local mode training and serving in PyCharm
 This repository examples will work in any IDE on your local machine. 
 
 Here you can see a TensorFlow example running on PyCharm.
