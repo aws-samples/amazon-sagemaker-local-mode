@@ -3,12 +3,12 @@
 #
 # Prerequisites:
 #   1. Install required Python packages:
-#       pip install boto3 sagemaker==1.71.0 pandas scikit-learn
+#       pip install boto3 sagemaker pandas scikit-learn
 #       pip install 'sagemaker[local]'
 #   2. Docker Desktop has to be installed on your computer, and running.
 #   3. Open terminal and run the following commands:
 #       docker build  -t sagemaker-lightgbm-regression-local container/.
-#   4. Create AmazonSageMaker-ExecutionRole. For More Details: https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html
+##############################################################################################
 
 import boto3
 from sagemaker.local import LocalSession
@@ -22,9 +22,8 @@ from sagemaker.predictor import csv_serializer
 sagemaker_session = LocalSession()
 sagemaker_session.config = {'local': {'local_code': True}}
 
-iam = boto3.client('iam', region_name='us-east-1')
-role = iam.get_role(RoleName='AmazonSageMaker-ExecutionRole-20190829T190746')['Role']['Arn']
-region = sagemaker_session.boto_session.region_name
+# For local training a dummy role will be sufficient
+role = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
 
 data = load_boston()
 
@@ -47,15 +46,13 @@ trainX.to_csv(local_train, header=None, index=False)
 valX.to_csv(local_validation, header=None, index=False)
 testX.to_csv(local_test, header=None, index=False)
 
-account = sagemaker_session.boto_session.client('sts').get_caller_identity()['Account']
-region = sagemaker_session.boto_session.region_name
 image = 'sagemaker-lightgbm-regression-local'
 
 local_lightgbm = Estimator(
     image,
     role,
-    train_instance_count=1,
-    train_instance_type="local",
+    instance_count=1,
+    instance_type="local",
     hyperparameters={'boosting_type': 'gbdt',
             'objective': 'regression',
             'num_leaves': 31,
