@@ -62,8 +62,8 @@ local_lightgbm = Estimator(
             'bagging_freq': 5,
             'verbose': 0})
 
-train_location = 'file://./data/train/boston_train.csv'
-validation_location = 'file://./data/validation/boston_validation.csv'
+train_location = 'file://'+local_train
+validation_location = 'file://'+local_validation
 local_lightgbm.fit({'train':train_location, 'validation': validation_location}, logs=True)
 
 predictor = local_lightgbm.deploy(1, 'local', serializer=csv_serializer)
