@@ -50,6 +50,7 @@ The repository contains the following resources:
 
 5. Open the project in any IDE of your choice in order to run the example Python files.
 
+6. Follow the instructions on which Python packages to install in each of the example Python file.
 
 ## Questions?
 
