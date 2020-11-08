@@ -10,14 +10,12 @@
 #       docker build  -t sagemaker-catboost-regressor-local container/.
 ##############################################################################################
 
-import boto3
-from sagemaker.local import LocalSession
 import pandas as pd
+from sagemaker.estimator import Estimator
+from sagemaker.local import LocalSession
+from sagemaker.predictor import csv_serializer
 from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
-from sagemaker.estimator import Estimator
-from sagemaker.predictor import csv_serializer
-
 
 sagemaker_session = LocalSession()
 sagemaker_session.config = {'local': {'local_code': True}}
