@@ -7,3 +7,17 @@
 .idea/modules.xml
 .idea/vcs.xml
 .idea/workspace.xml
+tensorflow_script_mode_local_training_and_serving/data/eval_data.npy
+tensorflow_script_mode_local_training_and_serving/data/eval_labels.npy
+tensorflow_script_mode_local_training_and_serving/data/train_data.npy
+tensorflow_script_mode_local_training_and_serving/data/train_labels.npy
+pytorch_script_mode_local_training_and_serving/__pycache__/utils_cifar.cpython-38.pyc
+pytorch_script_mode_local_training_and_serving/data/cifar-10-batches-py/batches.meta
+pytorch_script_mode_local_training_and_serving/data/cifar-10-batches-py/data_batch_1
+pytorch_script_mode_local_training_and_serving/data/cifar-10-batches-py/data_batch_2
+pytorch_script_mode_local_training_and_serving/data/cifar-10-batches-py/data_batch_3
+pytorch_script_mode_local_training_and_serving/data/cifar-10-batches-py/data_batch_4
+pytorch_script_mode_local_training_and_serving/data/cifar-10-batches-py/data_batch_5
+pytorch_script_mode_local_training_and_serving/data/cifar-10-batches-py/readme.html
+pytorch_script_mode_local_training_and_serving/data/cifar-10-batches-py/test_batch
+pytorch_script_mode_local_training_and_serving/data/cifar-10-python.tar.gz
