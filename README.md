@@ -1,17 +1,44 @@
-## My Project
+## Amazon SageMaker Local Mode Examples
 
-TODO: Fill this README out!
+This repository contains examples and related resources showing you how to train and serve on your local machine using Amazon SageMaker Local mode, for training and serving. 
 
-Be sure to:
+## Overview
 
-* Change the title in this README
-* Edit your repository description on GitHub
+The local mode in the Amazon SageMaker Python SDK can emulate CPU (single and multi-instance) and GPU (single instance) SageMaker training jobs by changing a single argument in the TensorFlow or MXNet estimators.  To do this, it uses Docker compose and NVIDIA Docker.  It will also pull the Amazon SageMaker TensorFlow, PyTorch or MXNet containers from Amazon ECS, so you’ll need to be able to access a public Amazon ECR repository from your local environment.
 
-## Security
+### Repository Structure
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+The repository contains the following resources:
+
+- **TensorFlow resources:**  
+
+  - [**TensorFlow Script Mode Training and Serving**](tensorflow_script_mode_local_training_and_serving):  This example shows a complete workflow for TensorFlow, showing how to train locally, on the SageMaker Notebook, to verify the training completes successfully. Then you train using SageMaker script mode, using on demand training instances. You continue training using SageMaker Managed Spot Training, simulating a spot interruption, and see how model training resumes from the latest epoch, based on the checkpoints saved in S3. Finally, you deploy the model and produce a confusion matrix.
+  
+- **PyTorch resources:**  
+
+  - [**PyTorch Script Mode Training and Serving**](pytorch_script_mode_local_training_and_serving):  This example shows a complete workflow for PyTorch, showing how to train locally, on the SageMaker Notebook, to verify the training completes successfully. Then you train using SageMaker script mode, using on demand training instances. You continue training using SageMaker Managed Spot Training, simulating a spot interruption, and see how model training resumes from the latest epoch, based on the checkpoints saved in S3. Finally, you deploy the model and produce a confusion matrix.    
+
+- **Bring Your Own Container resources:**  
+
+  - [**Bring Your Own Contianer CatBoost Algorithm**](catboost_bring_your_own_container_local_training_and_serving):  This example provides a detailed walkthrough on how to package a CatBoost algorithm for training and production-ready hosting. We have included alos a Python file for local training and serving that can run on your local computer, for faster development.    
+  - [**Bring Your Own Contianer LightGBM Algorithm**](lightgbm_bring_your_own_container_local_training_and_serving):  This example provides a detailed walkthrough on how to package a LightGBM algorithm for training and production-ready hosting. We have included alos a Python file for local training and serving that can run on your local computer, for faster development.
+  
+
+### Installation Instructions
+
+1. [Create an AWS account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html) if you do not already have one and login.
+
+2. Install [Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
+
+3. [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-gui) and [Configure credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config).
+
+3. Clone the repo onto your local development machine using `git clone`.
+
+
+## Questions?
+
+Please contact [@e_sela](https://twitter.com/e_sela) or raise an issue on this repo.
 
 ## License
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
-
