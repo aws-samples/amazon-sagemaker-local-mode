@@ -55,7 +55,7 @@ def main():
     print('Starting model training')
     cifar10_estimator = PyTorch(entry_point='cifar10_pytorch.py',
                                 role=role,
-                                framework_version='1.4.0',
+                                framework_version='1.6.0',
                                 py_version='py3',
                                 instance_count=1,
                                 instance_type='local',
