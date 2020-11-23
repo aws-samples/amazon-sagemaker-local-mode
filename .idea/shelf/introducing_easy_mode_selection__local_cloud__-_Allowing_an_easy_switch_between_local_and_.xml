@@ -1,0 +1,4 @@
+<changelist name="introducing_easy_mode_selection_(local_cloud)_-_Allowing_an_easy_switch_between_local_and_" date="1606144046909" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/introducing_easy_mode_selection_(local_cloud)_-_Allowing_an_easy_switch_between_local_and_/shelved.patch" />
+  <option name="DESCRIPTION" value="introducing easy mode selection (local/cloud) - Allowing an easy switch between local and cloud modes - see the documentation: config = get_config(LOCAL_MODE|CLOUD_MODE)" />
+</changelist>
