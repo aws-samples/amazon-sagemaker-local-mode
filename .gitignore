@@ -1,12 +1,6 @@
 
 .DS_Store
-.idea/amazon-sagemaker-local-mode.iml
-.idea/inspectionProfiles/profiles_settings.xml
-.idea/inspectionProfiles/Project_Default.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/workspace.xml
+.idea/**
 tensorflow_script_mode_local_training_and_serving/data/eval_data.npy
 tensorflow_script_mode_local_training_and_serving/data/eval_labels.npy
 tensorflow_script_mode_local_training_and_serving/data/train_data.npy
