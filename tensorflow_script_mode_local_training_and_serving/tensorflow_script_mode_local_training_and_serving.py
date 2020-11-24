@@ -3,8 +3,7 @@
 #
 # Prerequisites:
 #   1. Install required Python packages:
-#       pip install boto3 sagemaker pandas tensorflow
-#       pip install 'sagemaker[local]'
+#       pip install -r requirements.txt
 #   2. Docker Desktop has to be installed on your computer, and running.
 #   3. You should have AWS credentials configured on your local machine
 #      in order to be able to pull the docker image from ECR.
@@ -64,6 +63,7 @@ def main():
     role = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
 
     print('Starting model training')
+    print('Note: if launching for the first time, container  image download might take a few minutes to complete.')
     mnist_estimator = TensorFlow(entry_point='mnist_tf2.py',
                                  role=role,
                                  instance_count=1,
@@ -73,6 +73,7 @@ def main():
                                  distribution={'parameter_server': {'enabled': True}})
 
     mnist_estimator.fit("file://./data/")
+    print('Completed model training')
 
     print('Deploying local mode endpoint')
     predictor = mnist_estimator.deploy(initial_instance_count=1, instance_type='local')
