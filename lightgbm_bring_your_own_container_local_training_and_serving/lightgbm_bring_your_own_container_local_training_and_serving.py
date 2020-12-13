@@ -1,4 +1,4 @@
-# This is a sample Python program that trains a simple LightGBM Regression model, and then preforms inference.
+# This is a sample Python program that trains a simple LightGBM Regression model, and then performs inference.
 # This implementation will work on your local computer.
 #
 # Prerequisites:
