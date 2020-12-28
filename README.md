@@ -19,6 +19,10 @@ Here you can see a TensorFlow example running on PyCharm. **The data for trainin
 
 ![SageMaker local mode serving in PyCharm](img/pycharm_sagemaker_local_serving.png)
 
+#### SageMaker local mode processing jobs in PyCharm
+
+![SageMaker local mode processing jobs in PyCharm](img/pycharm_sagemaker_local_processing_jobs.png)
+
 
 ### Repository Structure
 
@@ -37,6 +41,10 @@ The repository contains the following resources:
   - [**Bring Your Own Contianer CatBoost Algorithm**](catboost_bring_your_own_container_local_training_and_serving):  This example provides a detailed walkthrough on how to package a CatBoost algorithm for training and production-ready hosting. We have included also a Python file for local training and serving that can run on your local computer, for faster development.    
   - [**Bring Your Own Contianer LightGBM Algorithm**](lightgbm_bring_your_own_container_local_training_and_serving):  This example provides a detailed walkthrough on how to package a LightGBM algorithm for training and production-ready hosting. We have included also a Python file for local training and serving that can run on your local computer, for faster development.
   - [**Bring Your Own Contianer Prophet Algorithm**](prophet_bring_your_own_container_local_training_and_serving):  This example provides a detailed walkthrough on how to package a Prophet algorithm for training and production-ready hosting. We have included also a Python file for local training and serving that can run on your local computer, for faster development.
+  
+- **Bring Your Own Container scikit-learn Processing Job :**  
+
+  - [**Bring Your Own Contianer scikit-learn Processing Job**](scikit_learn_bring_your_own_container_local_processing):  This example provides a detailed walkthrough on how to package a scikit-learn Docker image for processing jobs. We have included also a Python file for local processing jobs that can run on your local computer, for faster development.
   
 **Note**: Those examples were tested on macOS and Linux.
 
