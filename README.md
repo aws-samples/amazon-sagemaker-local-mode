@@ -44,7 +44,7 @@ The repository contains the following resources:
   
 - **Bring Your Own Container scikit-learn Processing Job :**  
 
-  - [**Bring Your Own Container scikit-learn Processing Job**](scikit_learn_bring_your_own_container_local_processing):  This example provides a detailed walkthrough on how to package a scikit-learn Docker image for processing jobs. We have included also a Python file for local processing jobs that can run on your local computer, for faster development.
+  - [**Bring Your Own Container scikit-learn Processing Job**](scikit_learn_bring_your_own_container_local_processing):  This example provides a detailed walkthrough on how to package a scikit-learn Docker image for processing jobs. We have included also a Python file for processing jobs that can run on your local computer, for faster development.
   
 **Note**: Those examples were tested on macOS and Linux.
 
