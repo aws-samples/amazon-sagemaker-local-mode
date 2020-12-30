@@ -1,4 +1,4 @@
-# This is a sample Python program that trains a simple scikit-learn processing based on a docker image you build.
+# This is a sample Python program that runs a simple scikit-learn processing based on a docker image you build.
 # This implementation will work on your *local computer*.
 #
 # Prerequisites:
