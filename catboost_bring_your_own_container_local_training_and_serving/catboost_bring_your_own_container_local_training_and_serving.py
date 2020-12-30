@@ -1,4 +1,4 @@
-# This is a sample training Python program that trains a simple CatBoost Regressor tree model.
+# This is a sample Python program that trains a simple CatBoost Regressor tree model, and then performs inference.
 # This implementation will work on your *local computer*.
 #
 # Prerequisites:
@@ -8,7 +8,7 @@
 #   2. Docker Desktop has to be installed on your computer, and running.
 #   3. Open terminal and run the following commands:
 #       docker build  -t sagemaker-catboost-regressor-local container/.
-##############################################################################################
+########################################################################################################################
 
 import pandas as pd
 from sagemaker.estimator import Estimator
