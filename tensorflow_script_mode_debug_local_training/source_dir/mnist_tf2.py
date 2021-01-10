@@ -17,6 +17,7 @@ import os
 import numpy as np
 import json
 
+# Added the following commands to connect to the Debug Server
 import pydevd_pycharm
 pydevd_pycharm.settrace('host.docker.internal', port=4200, stdoutToServer=True, stderrToServer=True)
 
