@@ -74,6 +74,8 @@ def get_config():
 def main():
     config = get_config()
 
+    download_training_and_eval_data()
+
     print('Starting model training.')
     print(
         'Note: if launching for the first time in local mode, container image download might take a few minutes to complete.')

@@ -40,12 +40,8 @@ Next, You'll see a `Waiting for process connection...` message
 #### Run the SageMaker TensorFlow local training script
 Browse to the `tensorflow_script_mode_debug_local_training.py` file and run it.
 
-Look at the output of the Run, you'll be able to see the following lines, indicating installation of `pydevd-pycharm`:
-```
-/usr/local/bin/python3.7 -m pip install -r requirements.txt
-Collecting pydevd-pycharm~=202.6948.78
-Downloading pydevd-pycharm-202.6948.78.tar.gz (5.1 MB)
-```
+Look at the output of the Run, you'll be able to see the following lines, indicating installation of `pydevd-pycharm`
+![pydevd_pycharm installation](../img/pydevd_pycharm_install.png)
 
 #### Map the code in the container to the code in your project
 
@@ -79,3 +75,6 @@ In order to resume the program and stop on the breakpoint you set earlier, navig
 
 Your code is actually executed on the Docker container, but debugged on the local machine.
 ![Debug your application](../img/debug_your_application.png)
+
+Here you can see a breakpoint before actually running `model.fit`
+![Debug your application](../img/debug_your_application_2.png)

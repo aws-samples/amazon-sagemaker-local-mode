@@ -15,3 +15,7 @@ pytorch_script_mode_local_training_and_serving/data/cifar-10-batches-py/data_bat
 pytorch_script_mode_local_training_and_serving/data/cifar-10-batches-py/readme.html
 pytorch_script_mode_local_training_and_serving/data/cifar-10-batches-py/test_batch
 pytorch_script_mode_local_training_and_serving/data/cifar-10-python.tar.gz
+tensorflow_script_mode_debug_local_training/data/eval_data.npy
+tensorflow_script_mode_debug_local_training/data/eval_labels.npy
+tensorflow_script_mode_debug_local_training/data/train_data.npy
+tensorflow_script_mode_debug_local_training/data/train_labels.npy
