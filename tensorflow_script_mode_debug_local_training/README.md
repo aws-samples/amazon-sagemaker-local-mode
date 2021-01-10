@@ -76,5 +76,5 @@ In order to resume the program and stop on the breakpoint you set earlier, navig
 Your code is actually executed on the Docker container, but debugged on the local machine.
 ![Debug your application](../img/debug_your_application.png)
 
-Here you can see a breakpoint before actually running `model.fit`
+Here you can see a breakpoint before actually running `model.fit` command
 ![Debug your application](../img/debug_your_application_2.png)
