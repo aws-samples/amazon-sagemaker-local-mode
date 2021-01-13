@@ -1,6 +1,6 @@
 ## Amazon SageMaker Local Mode Examples
 
-This repository contains examples and related resources showing you how to preprocess, train and serve on your local machine using Amazon SageMaker Local mode for processing jobs, training and serving. 
+This repository contains examples and related resources showing you how to preprocess, train, debug your training script with breakpoints, and serve on your local machine using Amazon SageMaker Local mode for processing jobs, training and serving. 
 
 ## Overview
 
