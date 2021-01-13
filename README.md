@@ -23,6 +23,10 @@ Here you can see a TensorFlow example running on PyCharm. **The data for trainin
 
 ![SageMaker local mode processing jobs in PyCharm](img/pycharm_sagemaker_local_processing_jobs.png)
 
+#### Debugging your training script running SageMaker local mode training in PyCharm
+
+![Debug your application](img/debug_your_application_2.png)
+
 
 ### Repository Structure
 
