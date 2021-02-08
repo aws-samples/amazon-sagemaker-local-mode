@@ -19,3 +19,4 @@ tensorflow_script_mode_debug_local_training/data/eval_data.npy
 tensorflow_script_mode_debug_local_training/data/eval_labels.npy
 tensorflow_script_mode_debug_local_training/data/train_data.npy
 tensorflow_script_mode_debug_local_training/data/train_labels.npy
+/tensorflow_script_mode_local_model_inference/libs/
