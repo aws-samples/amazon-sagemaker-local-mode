@@ -4,7 +4,6 @@
 #
 # This example is based on: https://github.com/aws/amazon-sagemaker-examples/blob/master/frameworks/tensorflow/get_started_mnist_deploy.ipynb
 #
-#
 # Prerequisites:
 #   1. Install required Python packages:
 #      `pip install -r requirements.txt`
