@@ -47,8 +47,8 @@ def main():
         'object_name': 'instances.json'
     }
 
-    results = predictor.predict(dummy_inputs)
-    print("results: {}".format(results))
+    predictions = predictor.predict(dummy_inputs)
+    print("predictions: {}".format(predictions))
 
     print('About to delete the endpoint')
     predictor.delete_endpoint(predictor.endpoint_name)
