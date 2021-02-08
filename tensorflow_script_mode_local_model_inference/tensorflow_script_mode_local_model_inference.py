@@ -2,7 +2,7 @@
 # Inference is done with a file in S3 instead of http payload for the SageMaker Endpoint.
 # This implementation will work on your *local computer*.
 #
-# This example was based on: https://github.com/aws/amazon-sagemaker-examples/blob/master/frameworks/tensorflow/get_started_mnist_deploy.ipynb
+# This example is based on: https://github.com/aws/amazon-sagemaker-examples/blob/master/frameworks/tensorflow/get_started_mnist_deploy.ipynb
 #
 #
 # Prerequisites:
