@@ -7,11 +7,9 @@
 # Prerequisites:
 #   1. Install required Python packages:
 #      `pip install -r requirements.txt`
-#   2. Install boto3 on `libs` folder for the Tensor Flow Model object to use for inference:
-#      `pip install boto3 -t ./libs`
-#   3. Docker Desktop installed and running on your computer:
+#   2. Docker Desktop installed and running on your computer:
 #      `docker ps`
-#   4. You should have AWS credentials configured on your local machine
+#   3. You should have AWS credentials configured on your local machine
 #      in order to be able to pull the docker image from ECR.
 ###############################################################################################
 
@@ -30,7 +28,7 @@ def main():
 
     model = TensorFlowModel(
         entry_point='inference.py',
-        dependencies=['./libs/'],
+        source_dir = './code',
         role=role,
         model_data=model_dir,
         framework_version='2.3.0',
