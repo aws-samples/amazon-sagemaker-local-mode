@@ -53,6 +53,7 @@ def main():
     role = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
 
     print('Starting model training')
+    print('Note: if launching for the first time in local mode, container image download might take a few minutes to complete.')
     cifar10_estimator = PyTorch(entry_point='cifar10_pytorch.py',
                                 role=role,
                                 framework_version='1.6.0',
