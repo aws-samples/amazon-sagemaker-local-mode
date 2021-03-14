@@ -56,7 +56,7 @@ def main():
     print('Note: if launching for the first time in local mode, container image download might take a few minutes to complete.')
     cifar10_estimator = PyTorch(entry_point='cifar10_pytorch.py',
                                 role=role,
-                                framework_version='1.6.0',
+                                framework_version='1.7.1',
                                 py_version='py3',
                                 instance_count=1,
                                 instance_type='local',
