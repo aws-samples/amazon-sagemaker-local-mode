@@ -122,10 +122,11 @@ def main():
     print(
         'Note: if launching for the first time in local mode, container image download might take a few minutes to complete.')
     mnist_estimator = TensorFlow(entry_point='mnist_tf2.py',
+                                 source_dir='code',
                                  role=config['role'],
                                  instance_count=1,
                                  instance_type=config['instance_type'],
-                                 framework_version='2.3.0',
+                                 framework_version='2.4.1',
                                  py_version='py37',
                                  distribution={'parameter_server': {'enabled': True}})
 
