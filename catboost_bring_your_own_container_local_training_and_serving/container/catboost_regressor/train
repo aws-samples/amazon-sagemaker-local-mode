@@ -95,12 +95,12 @@ def train():
             s.write('Exception during training: ' + str(e) + '\n' + trc)
         # Printing this causes the exception to be in the training job logs, as well.
         print('Exception during training: ' + str(e) + '\n' + trc)
-        # A non-zero exit code causes the training job to be marked as Failed.
+        # A non-zero exit dependencies causes the training job to be marked as Failed.
         sys.exit(255)
 
 
 if __name__ == '__main__':
     train()
 
-    # A zero exit code causes the job to be marked a Succeeded.
+    # A zero exit dependencies causes the job to be marked a Succeeded.
     sys.exit(0)
