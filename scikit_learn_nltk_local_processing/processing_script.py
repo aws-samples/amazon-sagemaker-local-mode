@@ -28,7 +28,7 @@ def main():
     print('Available input text files: {}'.format(input_files))
 
     if args['job-type'] == 'word-tokenize':
-        print('Word Count Job Type Started')
+        print('Word Tokenize Job Type Started')
         all_tokenized_words = []
         for input_file in input_files:
             file = open(os.path.join(input_data_path, input_file), 'r')
