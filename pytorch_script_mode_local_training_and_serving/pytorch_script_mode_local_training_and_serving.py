@@ -55,6 +55,7 @@ def main():
     print('Starting model training')
     print('Note: if launching for the first time in local mode, container image download might take a few minutes to complete.')
     cifar10_estimator = PyTorch(entry_point='cifar10_pytorch.py',
+                                source_dir='./code',
                                 role=role,
                                 framework_version='1.7.1',
                                 py_version='py3',
