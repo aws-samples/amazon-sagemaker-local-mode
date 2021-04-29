@@ -73,7 +73,6 @@ def main():
     do_inference_on_local_endpoint(predictor, testloader)
 
     predictor.delete_endpoint(predictor.endpoint)
-    predictor.delete_model()
 
 if __name__ == "__main__":
     main()
