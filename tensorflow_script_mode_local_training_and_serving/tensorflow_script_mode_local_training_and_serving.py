@@ -141,6 +141,5 @@ def main():
     print('About to delete the endpoint to stop paying (if in cloud mode).')
     predictor.delete_endpoint(predictor.endpoint_name)
 
-
 if __name__ == "__main__":
     main()
