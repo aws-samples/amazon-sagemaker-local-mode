@@ -140,7 +140,6 @@ def main():
 
     print('About to delete the endpoint to stop paying (if in cloud mode).')
     predictor.delete_endpoint(predictor.endpoint_name)
-    predictor.delete_model()
 
 
 if __name__ == "__main__":
