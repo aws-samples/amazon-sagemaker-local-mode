@@ -38,5 +38,3 @@ predicted = local_predictor.predict("30").decode('utf-8')
 print(predicted)
 
 local_predictor.delete_endpoint()
-local_predictor.delete_model()
-
