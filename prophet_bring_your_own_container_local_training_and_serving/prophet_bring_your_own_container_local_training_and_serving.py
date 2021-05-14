@@ -6,7 +6,8 @@
 #       pip install boto3 sagemaker pandas scikit-learn
 #       pip install 'sagemaker[local]'
 #   2. Docker Desktop has to be installed on your computer, and running.
-#   3. Open terminal and run the following commands:
+#   3. Docker Desktop has to be allocated with 6 CPUs and 8 GB of Memory.
+#   4. Open terminal and run the following commands:
 #       docker build  -t sagemaker-prophet-local container/.
 ########################################################################################################################
 
