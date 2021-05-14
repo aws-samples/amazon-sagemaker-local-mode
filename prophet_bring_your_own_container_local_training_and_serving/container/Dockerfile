@@ -31,7 +31,11 @@ RUN pip --no-cache-dir install \
         flask \
         gevent \
         gunicorn \
-        pystan
+        pystan \
+        lunarcalendar \
+        convertdate \
+        holidays \
+        tqdm
 
 RUN pip --no-cache-dir install \
         fbprophet==0.7.1
