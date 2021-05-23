@@ -2,11 +2,12 @@
 # This implementation will work on your *local computer* or in the *AWS Cloud*.
 #
 # Prerequisites:
-#   1. Install required Python packages:
+#   1. This example ***runs on GPU***, and was tested on p2.xlarge EC2 instance.
+#   2. Install required Python packages:
 #      `pip install -r requirements.txt`
-#   2. Docker Desktop installed and running on your computer:
-#      `docker ps`
-#   3. You should have AWS credentials configured on your local machine
+#   3. NVIDIA Container Toolkit installed and running on your computer.
+#      For more details: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
+#   4. You should have AWS credentials configured on your local machine
 #      in order to be able to pull the docker image from ECR.
 ###############################################################################################
 
@@ -54,7 +55,7 @@ def main():
                                  source_dir='source_dir',
                                  role=DUMMY_IAM_ROLE,
                                  instance_count=1,
-                                 instance_type='local',
+                                 instance_type='local_gpu',
                                  framework_version='2.4.1',
                                  disable_profiler=True,
                                  debugger_hook_config=False,
