@@ -57,8 +57,6 @@ def main():
                                  instance_count=1,
                                  instance_type='local_gpu',
                                  framework_version='2.4.1',
-                                 disable_profiler=True,
-                                 debugger_hook_config=False,
                                  py_version='py37')
 
     inputs = {'training': 'file://./data/training', 'validation': 'file://./data/validation'}
