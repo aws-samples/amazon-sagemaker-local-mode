@@ -2,7 +2,7 @@
 # This implementation will work on your *local computer* or in the *AWS Cloud*.
 #
 # Prerequisites:
-#   1. This example ***runs on GPU***, and was tested on p2.xlarge EC2 instance.
+#   1. This example ***runs on GPU***, and was tested on p2.xlarge and  EC2 instances.
 #   2. Install required Python packages:
 #      `pip install -r requirements.txt`
 #   3. NVIDIA Container Toolkit installed and running on your computer.
@@ -51,7 +51,7 @@ def main():
     print('Starting model training.')
     print(
         'Note: if launching for the first time in local mode, container image download might take a few minutes to complete.')
-    mnist_estimator = TensorFlow(entry_point='cifar10_tf2.py',
+    cifar10_estimator = TensorFlow(entry_point='cifar10_tf2.py',
                                  source_dir='source_dir',
                                  role=DUMMY_IAM_ROLE,
                                  instance_count=1,
@@ -62,7 +62,7 @@ def main():
                                  py_version='py37')
 
     inputs = {'training': 'file://./data/training', 'validation': 'file://./data/validation'}
-    mnist_estimator.fit(inputs)
+    cifar10_estimator.fit(inputs)
     print('Completed model training')
 
 
