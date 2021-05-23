@@ -22,8 +22,8 @@ DUMMY_IAM_ROLE = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-Ex
 def download_training_and_eval_data():
     if os.path.isfile('./data/training/train_data.npy') and \
             os.path.isfile('./data/training/train_labels.npy') and \
-            os.path.isfile('./data/validation/eval_data.npy') and \
-            os.path.isfile('./data/validation/eval_labels.npy'):
+            os.path.isfile('./data/validation/validation_data.npy') and \
+            os.path.isfile('./data/validation/validation_labels.npy'):
         print('Training and evaluation datasets exist. Skipping Download')
     else:
         print('Downloading training and evaluation dataset')
