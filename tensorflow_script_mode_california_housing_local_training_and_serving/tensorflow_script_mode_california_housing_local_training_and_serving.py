@@ -1,4 +1,4 @@
-# This is a sample Python program that trains a simple TensorFlow CIFAR-10 model.
+# This is a sample Python program that trains a simple TensorFlow California Housing model.
 # This implementation will work on your *local computer* or in the *AWS Cloud*.
 # To run training and inference *locally* set: `config = get_config(LOCAL_MODE)`
 # To run training and inference on the *cloud* set: `config = get_config(CLOUD_MODE)` and set a valid IAM role value in get_config()
