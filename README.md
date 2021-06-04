@@ -38,7 +38,7 @@ The repository contains the following resources:
 
 - **scikit-learn resources:**  
 
-  - [**scikit-learn Script Mode Training and Serving**](scikit_learn__script_mode_local_training_and_serving):  This example shows how to train and serve your model with scikit-learn and SageMaker script mode, on your local machine using SageMaker local mode.
+  - [**scikit-learn Script Mode Training and Serving**](scikit_learn_script_mode_local_training_and_serving):  This example shows how to train and serve your model with scikit-learn and SageMaker script mode, on your local machine using SageMaker local mode.
 
 - **XGBoost resources:**  
 
