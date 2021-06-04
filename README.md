@@ -36,6 +36,14 @@ Here you can see a TensorFlow example running on PyCharm. **The data for trainin
 
 The repository contains the following resources:
 
+- **scikit-learn resources:**  
+
+  - [**scikit-learn Script Mode Training and Serving**](scikit_learn__script_mode_local_training_and_serving):  This example shows how to train and serve your model with scikit-learn and SageMaker script mode, on your local machine using SageMaker local mode.
+
+- **XGBoost resources:**  
+
+  - [**XGBoost Script Mode Training and Serving**](xgboost_script_mode_local_training_and_serving):  This example shows how to train and serve your model with XGBoost and SageMaker script mode, on your local machine using SageMaker local mode.
+
 - **TensorFlow resources:**  
 
   - [**TensorFlow Script Mode Training and Serving**](tensorflow_script_mode_local_training_and_serving):  This example shows how to train and serve your model with TensorFlow and SageMaker script mode, on your local machine using SageMaker local mode.
@@ -46,10 +54,6 @@ The repository contains the following resources:
 
   - [**PyTorch Script Mode Training and Serving**](pytorch_script_mode_local_training_and_serving):  This example shows how to train and serve your model with PyTorch and SageMaker script mode, on your local machine using SageMaker local mode.
   
-- **XGBoost resources:**  
-
-  - [**XGBoost Script Mode Training and Serving**](xgboost_script_mode_local_training_and_serving):  This example shows how to train and serve your model with XGBoost and SageMaker script mode, on your local machine using SageMaker local mode.
-
 - **Bring Your Own Container resources:**  
 
   - [**Bring Your Own Container CatBoost Algorithm**](catboost_bring_your_own_container_local_training_and_serving):  This example provides a detailed walkthrough on how to package a CatBoost algorithm for training and production-ready hosting. We have included also a Python file for local training and serving that can run on your local computer, for faster development.    
