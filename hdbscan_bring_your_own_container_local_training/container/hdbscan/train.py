@@ -2,7 +2,6 @@
 
 # A sample training component that trains a simple HDBSCAN model.
 # This implementation works in File mode and makes no assumptions about the input file names.
-# Input is specified as CSV with a data point in each row and the labels in the first column.
 
 import json
 import os
