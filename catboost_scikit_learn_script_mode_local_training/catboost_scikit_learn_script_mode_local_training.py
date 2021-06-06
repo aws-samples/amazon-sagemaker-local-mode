@@ -10,13 +10,10 @@
 #      in order to be able to pull the docker image from ECR.
 ###############################################################################################
 
-import itertools
-import pandas as pd
-import numpy as np
 import os
 
-from sagemaker.sklearn import SKLearn, SKLearnModel
-from sklearn import datasets
+import pandas as pd
+from sagemaker.sklearn import SKLearn
 from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 
@@ -28,7 +25,7 @@ local_validation = './data/validation/boston_validation.csv'
 def download_training_and_eval_data():
     if os.path.isfile('./data/train/boston_train.csv') and \
             os.path.isfile('./data/validation/boston_validation.csv'):
-        print('Training and dataset exist. Skipping Download')
+        print('Training dataset exist. Skipping Download')
     else:
         print('Downloading training dataset')
 
