@@ -73,4 +73,3 @@ predicted = predictor.predict(payload).decode('utf-8')
 print(predicted)
 
 predictor.delete_endpoint(predictor.endpoint)
-predictor.delete_model()
