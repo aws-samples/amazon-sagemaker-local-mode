@@ -1,8 +1,9 @@
 import argparse
-import numpy as np
-import pandas as pd
 import os
+
+import pandas as pd
 import tensorflow as tf
+
 
 def parse_args():
 
