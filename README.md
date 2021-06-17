@@ -50,6 +50,7 @@ The repository contains the following resources:
   - [**TensorFlow Script Mode Training and Serving**](tensorflow_script_mode_local_training_and_serving):  This example shows how to train and serve your model with TensorFlow and SageMaker script mode, on your local machine using SageMaker local mode.
   - [**TensorFlow Script Mode Debug Training Script**](tensorflow_script_mode_debug_local_training):  This example shows how to debug your training script running inside a prebuilt SageMaker Docker image for TensorFlow, on your local machine using SageMaker local mode.
   - [**TensorFlow Script Mode Deploy a Trained Model and inference on file from S3**](tensorflow_script_mode_local_model_inference):  This example shows how to deploy a trained model to a SageMaker endpoint, on your local machine using SageMaker local mode, and inference with a file in S3 instead of http payload for the SageMaker Endpoint.
+  - [**TensorFlow Script Mode Training and Batch Transform**](tensorflow_script_mode_california_housing_local_training_and_batch_transform):  This example shows how to train your model and run Batch Transform job with TensorFlow and SageMaker script mode, on your local machine using SageMaker local mode.
   
 - **PyTorch resources:**  
 
