@@ -14,13 +14,11 @@
 
 import os
 
-import numpy as np
 import pandas as pd
-from sklearn.datasets import *
 import sklearn.model_selection
-from sklearn.preprocessing import StandardScaler
 from sagemaker.tensorflow import TensorFlow
-
+from sklearn.datasets import *
+from sklearn.preprocessing import StandardScaler
 
 DUMMY_IAM_ROLE = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
 
@@ -68,25 +66,6 @@ def download_training_and_eval_data():
         pd.DataFrame(y_test).to_csv(os.path.join(test_dir, 'y_test.csv'), header=None, index=False)
 
         print('Downloading completed')
-
-
-def do_inference_on_local_endpoint(predictor):
-    print(f'\nStarting Inference on endpoint (local).')
-
-    x_test = pd.read_csv('./data/test/x_test.csv')
-    y_test = pd.read_csv('./data/test/y_test.csv')
-
-    with open('./data/test/x_test.csv', 'r') as f:
-        payload = f.read().strip()
-
-    predicted = predictor.predict(payload).decode('utf-8')
-    print(predicted)
-
-    results = predictor.predict(x_test.head(10))['predictions']
-    print(results)
-    flat_list = [float('%.1f' % (item)) for sublist in results for item in sublist]
-    print('predictions: \t{}'.format(np.array(flat_list)))
-    print('target values: \t{}'.format(y_test[:10].round(decimals=1)))
 
 
 def main():
