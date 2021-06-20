@@ -51,6 +51,7 @@ def train():
     print('Starting the training.')
 
     try:
+        print('Tensorflow version: {}'.format(tf.__version__))
         # Read in any hyperparameters that the user passed with the training job
         print('Reading hyperparameters data: {}'.format(param_path))
         with open(param_path) as json_file:
