@@ -1,0 +1,6 @@
+numpy
+pandas
+sagemaker>=2.0.0<3.0.0
+sagemaker[local]
+torch==1.7.1
+transformers==4.7.0
