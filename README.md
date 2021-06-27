@@ -55,6 +55,7 @@ The repository contains the following resources:
 - **PyTorch resources:**  
 
   - [**PyTorch Script Mode Training and Serving**](pytorch_script_mode_local_training_and_serving):  This example shows how to train and serve your model with PyTorch and SageMaker script mode, on your local machine using SageMaker local mode.
+  - [**Deploy a pre-trained PyTorch HeBERT model from Hugging Face on Amazon SageMaker Endpoint**](huggingface_hebert_sentiment_analysis_local_serving):  This example shows how to deploy a pre-trained PyTorch HeBERT model from Hugging Face, on Amazon SageMaker Endpoint, on your local machine using SageMaker local mode.
   
 - **Bring Your Own Container resources:**  
 
