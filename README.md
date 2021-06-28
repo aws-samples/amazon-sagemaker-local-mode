@@ -39,7 +39,7 @@ The repository contains the following resources:
 - **scikit-learn resources:**  
 
   - [**scikit-learn Script Mode Training and Serving**](scikit_learn_script_mode_local_training_and_serving):  This example shows how to train and serve your model with scikit-learn and SageMaker script mode, on your local machine using SageMaker local mode.
-  - [**CatBoost with scikit-learn Script Mode Training**](catboost_scikit_learn_script_mode_local_training):  This example shows how to train a CatBoost model with scikit-learn and SageMaker script mode, on your local machine using SageMaker local mode.
+  - [**CatBoost with scikit-learn Script Mode Training and Serving**](catboost_scikit_learn_script_mode_local_training_and_serving):  This example shows how to train and serve a CatBoost model with scikit-learn and SageMaker script mode, on your local machine using SageMaker local mode.
 
 - **XGBoost resources:**  
 

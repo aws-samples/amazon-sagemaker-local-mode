@@ -16,12 +16,12 @@ from __future__ import print_function
 import argparse
 import os
 
+from io import StringIO
 import pandas as pd
 import numpy as np
 from catboost import CatBoostRegressor
 
 model_file_name = 'catboost-regressor-model.dump'
-
 
 if __name__ == "__main__":
     print("Training Started")
@@ -40,10 +40,10 @@ if __name__ == "__main__":
     if len(train_input_files) == 0:
         raise ValueError(
             (
-                "There are no files in {}.\n"
-                + "This usually indicates that the channel ({}) was incorrectly specified,\n"
-                + "the data specification in S3 was incorrectly specified or the role specified\n"
-                + "does not have permission to access the data."
+                    "There are no files in {}.\n"
+                    + "This usually indicates that the channel ({}) was incorrectly specified,\n"
+                    + "the data specification in S3 was incorrectly specified or the role specified\n"
+                    + "does not have permission to access the data."
             ).format(args.train, "train")
         )
     raw_data = [pd.read_csv(file, header=None, engine="python") for file in train_input_files]
@@ -85,6 +85,23 @@ if __name__ == "__main__":
     # persist model
     path = os.path.join(args.model_dir, model_file_name)
     print('saving model file to {}'.format(path))
-    model.save_model(path, format='json')
+    model.save_model(path)
 
     print("Training Completed")
+
+
+def model_fn(model_dir):
+    """Deserialized and return fitted model
+
+    Note that this should have the same name as the serialized model in the main method
+    """
+    catboost_model = CatBoostRegressor()
+    catboost_model.load_model(os.path.join(model_dir, model_file_name))
+    return catboost_model
+
+
+def predict_fn(input_data, model):
+    print('Invoked with {} records'.format(input_data.shape[0]))
+
+    predictions = model.predict(input_data)
+    return predictions
