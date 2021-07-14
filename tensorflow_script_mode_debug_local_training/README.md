@@ -13,7 +13,7 @@ Please follow the steps described below
 #### Create a run/debug configuration
 From the main menu, choose Run| Edit Configuration.... The Run/debug configurations dialog opens. You have to click Add configuration on the toolbar, and from the list of available configurations, select Python Debug Server.
 
-Enter the name of this run/debug configuration - let it be tensorflow_script_mode_debug_local_training. Specify the port number (here 4200) and the IDE host name (here host.docker.internal)  which resolves to the internal IP address used by the host. These parameters will be used by the remote TensorFlow training script.
+Enter the name of this run/debug configuration - let it be tensorflow_script_mode_debug_local_training. Specify the port number (here `4200`) and the IDE host name (here `host.docker.internal`)  which resolves to the internal IP address used by the host. These parameters will be used by the remote TensorFlow training script.
 ![SageMaker local mode TF2 debug training in PyCharm](../img/pycharm_sagemaker_local_tf2_debug_create_conf.png)
 
 #### Add `pydevd-pycharm` dependency
