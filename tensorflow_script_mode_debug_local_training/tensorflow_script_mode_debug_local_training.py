@@ -84,7 +84,7 @@ def main():
                                  role=config['role'],
                                  instance_count=1,
                                  instance_type=config['instance_type'],
-                                 framework_version='2.3.0',
+                                 framework_version='2.4.1',
                                  py_version='py37',
                                  distribution={'parameter_server': {'enabled': True}})
 
