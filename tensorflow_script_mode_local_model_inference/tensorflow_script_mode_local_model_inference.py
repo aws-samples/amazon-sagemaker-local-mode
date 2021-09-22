@@ -24,7 +24,7 @@ def main():
     session.config = {'local': {'local_code': True}}
 
     role = DUMMY_IAM_ROLE
-    model_dir = 's3://tensorflow-script-mode-local-model-inference/model.tar.gz'
+    model_dir = 's3://aws-ml-blog/artifacts/tensorflow-script-mode-local-model-inference/model.tar.gz'
 
     model = TensorFlowModel(
         entry_point='inference.py',
@@ -35,14 +35,18 @@ def main():
     )
 
     print('Deploying endpoint in local mode')
+    print(
+        'Note: if launching for the first time in local mode, container image download might take a few minutes to complete.')
     predictor = model.deploy(
         initial_instance_count=1,
         instance_type='local',
     )
 
+    print('Endpoint deployed in local mode')
+
     dummy_inputs = {
-        'bucket_name': 'tensorflow-script-mode-local-model-inference',
-        'object_name': 'instances.json'
+        'bucket_name': 'aws-ml-blog',
+        'object_name': 'artifacts/tensorflow-script-mode-local-model-inference/instances.json'
     }
 
     predictions = predictor.predict(dummy_inputs)
@@ -50,7 +54,6 @@ def main():
 
     print('About to delete the endpoint')
     predictor.delete_endpoint(predictor.endpoint_name)
-    predictor.delete_model()
 
 
 if __name__ == "__main__":
