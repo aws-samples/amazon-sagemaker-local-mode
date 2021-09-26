@@ -23,12 +23,11 @@ def download_training_data():
     if os.path.isfile('./data/cifar-10-batches-py/batches.meta') and \
             os.path.isfile('./data/cifar-10-python.tar.gz') :
         print('Training and evaluation datasets exist')
-        testloader = get_test_data_loader(False)
+        test_loader = get_test_data_loader(False)
     else:
         print('Downloading training and evaluation dataset')
-        trainloader = get_train_data_loader()
-        testloader = get_test_data_loader(True)
-    return testloader
+        test_loader = get_test_data_loader(True)
+    return test_loader
 
 
 def do_inference_on_local_endpoint(predictor, testloader):
@@ -57,7 +56,7 @@ def main():
     cifar10_estimator = PyTorch(entry_point='cifar10_pytorch.py',
                                 source_dir='./code',
                                 role=role,
-                                framework_version='1.7.1',
+                                framework_version='1.8',
                                 py_version='py3',
                                 instance_count=1,
                                 instance_type='local',
