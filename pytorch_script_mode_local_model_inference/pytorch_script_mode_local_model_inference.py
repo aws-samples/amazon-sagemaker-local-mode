@@ -1,4 +1,4 @@
-# This is a sample Python program that trains a simple PyTorch CIFAR-10 model.
+# This is a sample Python program that inference with a pretrained PyTorch CIFAR-10 model.
 # This implementation will work on your *local computer*.
 #
 # Prerequisites:
