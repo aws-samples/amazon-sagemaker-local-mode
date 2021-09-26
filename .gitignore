@@ -57,3 +57,12 @@ huggingface_hebert_sentiment_analysis_local_serving/model/
 /huggingface_hebert_sentiment_analysis_local_serving/env/
 /huggingface_hebert_sentiment_analysis_local_serving/model.tar.gz
 /catboost_scikit_learn_script_mode_local_training_and_serving/data/
+pytorch_script_mode_local_model_inference/data/cifar-10-batches-py/batches.meta
+pytorch_script_mode_local_model_inference/data/cifar-10-batches-py/data_batch_1
+pytorch_script_mode_local_model_inference/data/cifar-10-batches-py/data_batch_2
+pytorch_script_mode_local_model_inference/data/cifar-10-batches-py/data_batch_3
+pytorch_script_mode_local_model_inference/data/cifar-10-batches-py/data_batch_4
+pytorch_script_mode_local_model_inference/data/cifar-10-batches-py/data_batch_5
+pytorch_script_mode_local_model_inference/data/cifar-10-batches-py/readme.html
+pytorch_script_mode_local_model_inference/data/cifar-10-batches-py/test_batch
+pytorch_script_mode_local_model_inference/data/cifar-10-python.tar.gz

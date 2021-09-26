@@ -15,11 +15,13 @@ import os
 import numpy as np
 import torch
 from sagemaker.local import LocalSession
-from sagemaker.pytorch import PyTorch
+from sagemaker.pytorch import PyTorch, PyTorchModel
 from utils_cifar import get_train_data_loader, get_test_data_loader, classes
 
+DUMMY_IAM_ROLE = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
 
-def download_training_data():
+
+def download_data_for_inference():
     if os.path.isfile('./data/cifar-10-batches-py/batches.meta') and \
             os.path.isfile('./data/cifar-10-python.tar.gz') :
         print('Training and evaluation datasets exist')
@@ -43,31 +45,30 @@ def do_inference_on_local_endpoint(predictor, testloader):
                                   for j in range(4)))
 
 def main():
-    test_loader = download_training_data()
+    test_loader = download_data_for_inference()
 
     sagemaker_session = LocalSession()
     sagemaker_session.config = {'local': {'local_code': True}}
 
     # For local training a dummy role will be sufficient
-    role = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
+    role = DUMMY_IAM_ROLE
+    model_dir = 's3://aws-ml-blog/artifacts/pytorch-script-mode-local-model-inference/model.tar.gz'
 
-    print('Starting model training')
-    print('Note: if launching for the first time in local mode, container image download might take a few minutes to complete.')
-    cifar10_estimator = PyTorch(entry_point='cifar10_pytorch.py',
-                                source_dir='./code',
-                                role=role,
-                                framework_version='1.8',
-                                py_version='py3',
-                                instance_count=1,
-                                instance_type='local',
-                                hyperparameters={
-                                    'epochs': 1,
-                                })
+    model = PyTorchModel(
+        role=role,
+        model_data=model_dir,
+        framework_version='1.8',
+        py_version='py3',
+        entry_point='inference.py'
+    )
 
-    cifar10_estimator.fit('file://./data/')
-
-    print('Deploying local mode endpoint')
-    predictor = cifar10_estimator.deploy(initial_instance_count=1, instance_type='local')
+    print('Deploying endpoint in local mode')
+    print(
+        'Note: if launching for the first time in local mode, container image download might take a few minutes to complete.')
+    predictor = model.deploy(
+        initial_instance_count=1,
+        instance_type='local',
+    )
 
     do_inference_on_local_endpoint(predictor, test_loader)
 
