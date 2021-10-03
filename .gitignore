@@ -66,3 +66,6 @@ pytorch_script_mode_local_model_inference/data/cifar-10-batches-py/data_batch_5
 pytorch_script_mode_local_model_inference/data/cifar-10-batches-py/readme.html
 pytorch_script_mode_local_model_inference/data/cifar-10-batches-py/test_batch
 pytorch_script_mode_local_model_inference/data/cifar-10-python.tar.gz
+scikit_learn_script_mode_local_serving_no_model_artifact/dummy.model
+scikit_learn_script_mode_local_serving_no_model_artifact/dummy.txt
+scikit_learn_script_mode_local_serving_no_model_artifact/model.tar.gz
