@@ -30,11 +30,11 @@ def main():
     sagemaker_session = LocalSession()
     sagemaker_session.config = {'local': {'local_code': True}}
 
-    sample_file = Path("dummy.model")
-    sample_file.touch()
+    dummy_model_file = Path("dummy.model")
+    dummy_model_file.touch()
 
     with tarfile.open("model.tar.gz", "w:gz") as tar:
-        tar.add(sample_file.as_posix())
+        tar.add(dummy_model_file.as_posix())
 
     # For local training a dummy role will be sufficient
     role = DUMMY_IAM_ROLE
