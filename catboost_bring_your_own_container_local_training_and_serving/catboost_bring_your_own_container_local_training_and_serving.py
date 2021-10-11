@@ -14,7 +14,7 @@ import pandas as pd
 from sagemaker.estimator import Estimator
 from sagemaker.local import LocalSession
 from sagemaker.predictor import csv_serializer
-from sklearn.datasets import load_boston
+from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 
 sagemaker_session = LocalSession()
@@ -23,7 +23,7 @@ sagemaker_session.config = {'local': {'local_code': True}}
 # For local training a dummy role will be sufficient
 role = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
 
-data = load_boston()
+data = fetch_california_housing()
 
 X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.25, random_state=45)
 X_val, X_test, y_val, y_test = train_test_split(X_test, y_test, test_size=0.5, random_state=45)
@@ -36,9 +36,9 @@ valX['target'] = y_test
 
 testX = pd.DataFrame(X_test, columns=data.feature_names)
 
-local_train = './data/train/boston_train.csv'
-local_validation = './data/validation/boston_validation.csv'
-local_test = './data/test/boston_test.csv'
+local_train = './data/train/california_train.csv'
+local_validation = './data/validation/california_validation.csv'
+local_test = './data/test/california_test.csv'
 
 trainX.to_csv(local_train, header=None, index=False)
 valX.to_csv(local_validation, header=None, index=False)
