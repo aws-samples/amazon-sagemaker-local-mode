@@ -6,15 +6,13 @@ from __future__ import print_function
 import os
 import json
 import pickle
-import StringIO
 import sys
 import signal
 import traceback
-
 import flask
-
 import pandas as pd
 from catboost import CatBoostRegressor
+from io import StringIO
 
 
 prefix = '/opt/ml/'
@@ -67,7 +65,7 @@ def transformation():
     # Convert from CSV to pandas
     if flask.request.content_type == 'text/csv':
         data = flask.request.data.decode('utf-8')
-        s = StringIO.StringIO(data)
+        s = StringIO(data)
         data = pd.read_csv(s, header=None)
     else:
         return flask.Response(response='This predictor only supports CSV data', status=415, mimetype='text/plain')
@@ -78,7 +76,7 @@ def transformation():
     predictions = ScoringService.predict(data)
 
     # Convert from numpy back to CSV
-    out = StringIO.StringIO()
+    out = StringIO()
     pd.DataFrame({'results':predictions}).to_csv(out, header=False, index=False)
     result = out.getvalue()
 

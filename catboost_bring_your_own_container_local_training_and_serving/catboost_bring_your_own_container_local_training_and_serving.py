@@ -64,5 +64,4 @@ with open(local_test, 'r') as f:
 predicted = predictor.predict(payload).decode('utf-8')
 print(predicted)
 
-predictor.delete_endpoint(predictor.endpoint)
-predictor.delete_model()
+predictor.delete_endpoint()
