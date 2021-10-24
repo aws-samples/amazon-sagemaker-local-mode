@@ -46,6 +46,10 @@ testX.to_csv(local_test, header=None, index=False)
 
 image = 'sagemaker-catboost-regressor-local'
 
+env={
+    "MODEL_SERVER_WORKERS":"2"
+    }
+
 local_regressor = Estimator(
     image,
     role,
@@ -56,7 +60,7 @@ train_location = 'file://'+local_train
 validation_location = 'file://'+local_validation
 local_regressor.fit({'train':train_location, 'validation': validation_location}, logs=True)
 
-predictor = local_regressor.deploy(1, 'local', serializer=csv_serializer)
+predictor = local_regressor.deploy(1, 'local', serializer=csv_serializer, env=env)
 
 with open(local_test, 'r') as f:
     payload = f.read().strip()
