@@ -1,6 +1,7 @@
 
 .DS_Store
 .idea/**
+.venv/**
 tensorflow_script_mode_local_training_and_serving/data/eval_data.npy
 tensorflow_script_mode_local_training_and_serving/data/eval_labels.npy
 tensorflow_script_mode_local_training_and_serving/data/train_data.npy
