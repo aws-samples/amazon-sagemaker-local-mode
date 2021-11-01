@@ -1,7 +1,5 @@
 # This is a sample Python program that trains a simple XGBoost model on Abalone dataset.
 # This implementation will work on your *local computer* or in the *AWS Cloud*.
-# To run training and inference *locally* set: `config = get_config(LOCAL_MODE)`
-# To run training and inference on the *cloud* set: `config = get_config(CLOUD_MODE)` and set a valid IAM role value in get_config()
 #
 # Prerequisites:
 #   1. Install required Python packages:
