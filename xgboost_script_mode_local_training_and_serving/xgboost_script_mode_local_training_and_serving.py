@@ -48,7 +48,7 @@ def main():
         framework_version="1.2-1"
     )
 
-    train_input = TrainingInput("s3://xgboost-script-mode-local-training-and-serving/train/abalone", content_type="text/libsvm")
+    train_input = TrainingInput("file://./data/train/abalone", content_type="text/libsvm")
 
     xgb_script_mode_estimator.fit({"train": train_input, "validation": train_input})
 
