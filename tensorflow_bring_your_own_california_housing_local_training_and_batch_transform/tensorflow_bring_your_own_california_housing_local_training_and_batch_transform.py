@@ -71,6 +71,10 @@ def main():
 
     image = 'sagemaker-tensorflow2-batch-transform-local'
 
+    env = {
+        "MODEL_SERVER_WORKERS": "2"
+    }
+
     print('Starting model training.')
     california_housing_estimator = Estimator(
         image,
@@ -90,6 +94,7 @@ def main():
         instance_count=1,
         instance_type='local',
         output_path='file:./data/output',
+        env = env
     )
 
     tensorflow_serving_transformer.transform('file://./data/input',
