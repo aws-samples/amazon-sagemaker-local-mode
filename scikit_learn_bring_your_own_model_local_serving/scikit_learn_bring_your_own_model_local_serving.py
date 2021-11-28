@@ -15,7 +15,7 @@ import pandas as pd
 import tarfile
 
 from sagemaker.sklearn import SKLearnModel
-from sklearn.datasets import load_boston
+from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 
 DUMMY_IAM_ROLE = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
@@ -26,7 +26,7 @@ def main():
 
     # Prepare data for model inference - we use the Boston housing dataset
     print('Preparing data for model inference')
-    data = load_boston()
+    data = fetch_california_housing()
     X_train, X_test, y_train, y_test = train_test_split(
         data.data, data.target, test_size=0.25, random_state=42
     )
