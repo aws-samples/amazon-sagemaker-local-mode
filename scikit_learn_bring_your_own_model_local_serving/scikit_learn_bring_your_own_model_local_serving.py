@@ -55,8 +55,8 @@ def main():
     print('Deploying endpoint in local mode')
     predictor = model.deploy(initial_instance_count=1, instance_type='local')
 
-    predictions = predictor.predict(testX[data.feature_names])
-    print("Predictions: {}".format(predictor.predict(testX.values)))
+    predictions = predictor.predict(testX[data.feature_names].head(5))
+    print(f"Predictions: {predictions}")
 
     print('About to delete the endpoint to stop paying (if in cloud mode).')
     predictor.delete_endpoint(predictor.endpoint_name)
