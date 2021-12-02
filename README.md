@@ -1,4 +1,5 @@
 ## Amazon SageMaker Local Mode Examples
+![AWS ML](img/aws_ml.png) ![AWS Deep Learning Containers](img/aws_deep_learning_containers.png) ![Docker](img/docker.png) ![Local Machine](img/local_machine.png) 
 
 This repository contains examples and related resources showing you how to preprocess, train, debug your training script with breakpoints, and serve on your local machine using Amazon SageMaker Local mode for processing jobs, training and serving. 
 
