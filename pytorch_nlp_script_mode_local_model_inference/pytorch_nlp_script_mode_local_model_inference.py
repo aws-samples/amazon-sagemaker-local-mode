@@ -10,8 +10,9 @@
 #      in order to be able to pull the docker image from ECR.
 ##############################################################################################
 
+import pandas as pd
 from sagemaker.local import LocalSession
-from sagemaker.pytorch import PyTorch, PyTorchModel
+from sagemaker.pytorch import PyTorchModel
 import sagemaker
 
 DUMMY_IAM_ROLE = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
@@ -26,11 +27,14 @@ def main():
     role = DUMMY_IAM_ROLE
     model_dir = 's3://aws-ml-blog/artifacts/pytorch-nlp-script-mode-local-model-inference/model.tar.gz'
 
+    test_data = pd.read_csv('./data/test_data.csv', header=None)
+    print(f'test_data: {test_data}')
+
     model = PyTorchModel(
         role=role,
         model_data=model_dir,
         framework_version='1.7.1',
-        source_dir="code",
+        source_dir='code',
         py_version='py3',
         entry_point='inference.py'
     )
@@ -43,10 +47,10 @@ def main():
         instance_type='local',
     )
 
-    predictor.serializer = sagemaker.serializers.JSONSerializer()
-    predictor.deserializer = sagemaker.deserializers.JSONDeserializer()
+    predictor.serializer = sagemaker.serializers.CSVSerializer()
+    predictor.deserializer = sagemaker.deserializers.CSVDeserializer()
 
-    predictions = predictor.predict("Never allow the same bug to bite you twice.")
+    predictions = predictor.predict(test_data.to_csv(header=False, index=False))
     print(f'predictions: {predictions}')
 
     predictor.delete_endpoint(predictor.endpoint)

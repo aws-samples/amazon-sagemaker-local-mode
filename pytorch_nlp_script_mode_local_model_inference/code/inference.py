@@ -1,8 +1,8 @@
 import json
 from transformers import pipeline
 
-JSON_CONTENT_TYPE = 'application/json'
 
+CSV_CONTENT_TYPE = 'text/csv'
 
 def model_fn(model_dir):
     sentiment_analysis = pipeline(
@@ -15,24 +15,14 @@ def model_fn(model_dir):
     return sentiment_analysis
 
 
-def input_fn(serialized_input_data, content_type=JSON_CONTENT_TYPE):
-    if content_type == JSON_CONTENT_TYPE:
-        input_data = json.loads(serialized_input_data)
-        print(f'input_data: {input_data}')
+def input_fn(serialized_input_data, content_type=CSV_CONTENT_TYPE):
+    if content_type == CSV_CONTENT_TYPE:
+        input_data = serialized_input_data.splitlines()
         return input_data
-
     else:
         raise Exception('Requested unsupported ContentType in Accept: ' + content_type)
         return
 
 
 def predict_fn(input_data, model):
-    print('Got input Data: {}'.format(input_data))
     return model(input_data)
-
-
-def output_fn(prediction_output, accept=JSON_CONTENT_TYPE):
-    if accept == JSON_CONTENT_TYPE:
-        return json.dumps(prediction_output), accept
-
-    raise Exception('Requested unsupported ContentType in Accept: ' + accept)
