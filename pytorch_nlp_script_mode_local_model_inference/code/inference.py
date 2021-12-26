@@ -1,8 +1,7 @@
-import json
 from transformers import pipeline
 
-
 CSV_CONTENT_TYPE = 'text/csv'
+
 
 def model_fn(model_dir):
     sentiment_analysis = pipeline(
@@ -11,7 +10,6 @@ def model_fn(model_dir):
         tokenizer=model_dir,
         return_all_scores=True
     )
-
     return sentiment_analysis
 
 
