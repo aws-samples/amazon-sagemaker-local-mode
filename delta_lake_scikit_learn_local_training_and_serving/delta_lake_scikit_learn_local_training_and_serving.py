@@ -39,12 +39,15 @@ def main():
     sklearn.fit({"train": delta_lake_profile_file})
     print('Completed model training')
 
-    # print('Deploying endpoint in local mode')
-    # predictor = sklearn.deploy(initial_instance_count=1, instance_type='local')
-    #
-    #
-    # print('About to delete the endpoint to stop paying (if in cloud mode).')
-    # predictor.delete_endpoint(predictor.endpoint_name)
+    print('Deploying endpoint in local mode')
+    predictor = sklearn.deploy(initial_instance_count=1, instance_type='local')
+
+    test_sample = [[0.00632,18.0,2.31,0,0.538,6.575,65.2,4.0900,1,296,15.3,396.90,4.98]]
+    prediction = predictor.predict(test_sample)
+    print(f'Prediction: {prediction}')
+
+    print('About to delete the endpoint to stop paying (if in cloud mode).')
+    predictor.delete_endpoint(predictor.endpoint_name)
 
 
 if __name__ == "__main__":

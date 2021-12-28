@@ -64,7 +64,7 @@ if __name__ == "__main__":
     train_data = delta_sharing.load_as_pandas(table_url)
     print(f'Train data shape: {train_data.shape}')
 
-    # Drop null values - THIS SHOULD BE DONE IN PRE-PROCESSING STAGE AS BEST PRACTISE
+    # Drop null values - THIS SHOULD BE DONE IN PRE-PROCESSING STAGE AS BEST PRACTISE!
     train_data.dropna(inplace=True)
 
     # Split the data into training and testing sets
@@ -89,6 +89,7 @@ if __name__ == "__main__":
     print("--------------------------------------")
     print(f'RMSE is {rmse}')
     print(f'R2 score is {r2}')
+    print("\n")
 
     # Save model
     joblib.dump(linear_model, os.path.join(args.model_dir, "model.joblib"))
