@@ -13,7 +13,10 @@
 
 from sagemaker.local import LocalSession
 from sagemaker.processing import ScriptProcessor, ProcessingInput, ProcessingOutput
+import boto3
 
+
+s3 = boto3.client('s3')
 sagemaker_session = LocalSession()
 sagemaker_session.config = {'local': {'local_code': True}}
 
@@ -43,5 +46,11 @@ print(output_config)
 for output in output_config['Outputs']:
     if output['OutputName'] == 'delta_lake_processed_data':
         delta_lake_processed_data_file = output['S3Output']['S3Uri']
+        bucket = delta_lake_processed_data_file.split("/")[:3][2]
+        output_file_name = '/'.join(delta_lake_processed_data_file.split("/")[3:])+"/total_cases_per_location.csv"
 
-print('Output file is located on: {}'.format(delta_lake_processed_data_file))
+print(f'Opening processing output file: {"s3://"+bucket+"/"+output_file_name}')
+data = s3.get_object(Bucket=bucket, Key=output_file_name)
+contents = data['Body'].read()
+print('Processing output file content\n-----------\n')
+print(contents.decode("utf-8"))

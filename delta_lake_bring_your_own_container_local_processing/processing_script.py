@@ -1,6 +1,5 @@
 import os
 import sys
-from datetime import datetime
 import delta_sharing
 
 
@@ -44,7 +43,7 @@ def main():
     cases_per_location = data.groupby(['location'])['total_cases'].sum()
     print(f'cases_per_location\n{cases_per_location}\n')
 
-    output_file = os.path.join(processed_data_path,'total_cases_location_' + datetime.now().strftime("%d%m%Y_%H_%M_%S") + '.csv')
+    output_file = os.path.join(processed_data_path,'total_cases_per_location.csv')
     print(f'Writing output file: {output_file}')
     cases_per_location.to_csv(output_file)
 
