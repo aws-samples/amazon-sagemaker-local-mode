@@ -78,7 +78,7 @@ The repository contains the following resources:
 - **Bring Your Own Container scikit-learn Processing Job :**  
 
   - [**Bring Your Own Container scikit-learn Processing Job**](scikit_learn_bring_your_own_container_local_processing):  This example provides a detailed walk-through on how to package a scikit-learn Docker image for processing jobs. We have included also a Python file for processing jobs that can run on your local computer, for faster development.
-  - [**Delta Lake Bring Your Own Container Processing Job**](delta_lake_bring_your_own_container_local_processing):  This example provides a detailed walk-through on how to package a scikit-learn Docker image for processing job that fetch data from a table on Delta Lake, and aggregate COVID-19 cases per country. We have included also a Python file for processing jobs that can run on your local computer, for faster development.
+  - [**Delta Lake Bring Your Own Container Processing Job**](delta_lake_bring_your_own_container_local_processing):  This example provides a detailed walk-through on how to package a scikit-learn Docker image for processing job that fetch data from a table on Delta Lake, and aggregate total COVID-19 cases per country. We have included also a Python file for processing jobs that can run on your local computer, for faster development.
     
 **Note**: Those examples were tested on macOS and Linux.
 
