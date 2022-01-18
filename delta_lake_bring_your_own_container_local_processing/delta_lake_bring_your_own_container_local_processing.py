@@ -8,7 +8,7 @@
 #       pip install 'sagemaker[local]'
 #   2. Docker Desktop has to be installed on your computer, and running.
 #   3. Open terminal and run the following commands:
-#       docker build -t sagemaker-delta-lake-processing-local container/.
+#       docker build -t sagemaker-delta-sharing-processing-local container/.
 ########################################################################################################################
 
 from sagemaker.local import LocalSession
@@ -24,7 +24,7 @@ sagemaker_session.config = {'local': {'local_code': True}}
 role = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
 
 processor = ScriptProcessor(command=['python3'],
-                    image_uri='sagemaker-delta-lake-processing-local',
+                    image_uri='sagemaker-delta-sharing-processing-local',
                     role=role,
                     instance_count=1,
                     instance_type='local')
