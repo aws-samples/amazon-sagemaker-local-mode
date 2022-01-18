@@ -1,4 +1,4 @@
-# This is a sample Python program that runs a simple scikit-learn processing on data fetched from Delta Lake.
+# This is a sample Python program that runs a simple scikit-learn processing on data fetched from Delta Lake, using Delta Sharing.
 # The output of the processing will be total_cases per location.
 # This implementation will work on your *local computer*.
 #
