@@ -1,5 +1,5 @@
 # This is a sample Python program that trains a simple scikit-learn model
-# on the boston-housing dataset fetched from Delta Lake.
+# on the boston-housing dataset fetched from Delta Lake, using Delta Sharing.
 # This implementation will work on your *local computer* or in the *AWS Cloud*.
 #
 # Delta Sharing: An Open Protocol for Secure Data Sharing
