@@ -42,7 +42,7 @@ The repository contains the following resources:
   - [**scikit-learn Script Mode Training and Serving**](scikit_learn_script_mode_local_training_and_serving):  This example shows how to train and serve your model with scikit-learn and SageMaker script mode, on your local machine using SageMaker local mode.
   - [**scikit-learn Bring Your Own Model**](scikit_learn_bring_your_own_model_local_serving):  This example shows how to serve your pre-trained scikit-learn model with SageMaker, on your local machine using SageMaker local mode.
   - [**CatBoost with scikit-learn Script Mode Training and Serving**](catboost_scikit_learn_script_mode_local_training_and_serving):  This example shows how to train and serve a CatBoost model with scikit-learn and SageMaker script mode, on your local machine using SageMaker local mode.
-  - [**Delta Lake scikit-learn Script Mode Training and Serving**](delta_lake_scikit_learn_local_training_and_serving):  This example shows how to train a scikit-learn model on the boston-housing dataset fetched from Delta Lake, and then serve your model with scikit-learn and SageMaker script mode, on your local machine using SageMaker local mode.
+  - [**Delta Sharing scikit-learn Script Mode Training and Serving**](delta_sharing_scikit_learn_local_training_and_serving):  This example shows how to train a scikit-learn model on the boston-housing dataset fetched from Delta Lake using Delta Sharing, and then serve your model with scikit-learn and SageMaker script mode, on your local machine using SageMaker local mode.
 
 - **XGBoost resources:**  
 
@@ -70,7 +70,8 @@ The repository contains the following resources:
   - [**Bring Your Own Container Prophet Algorithm**](prophet_bring_your_own_container_local_training_and_serving):  This example provides a detailed walkthrough on how to package a Prophet algorithm for training and production-ready hosting. We have included also a Python file for local training and serving that can run on your local computer, for faster development.
   - [**Bring Your Own Container HDBSCAN Algorithm**](hdbscan_bring_your_own_container_local_training):  This example provides a detailed walkthrough on how to package a HDBSCAN algorithm for training. We have included also a Python file for local training that can run on your local computer, for faster development.
   - [**Bring Your Own Container scikit-learn Algorithm and deploy a pre-trained Model**](scikit_learn_bring_your_own_container_and_own_model_local_serving):  This example provides a detailed walkthrough on how to package a scikit-learn algorithm for serving with a pre-trained model. We have included also a Python file for local serving that can run on your local computer, for faster development.
-  
+  - [**Delta Lake Bring Your Own Container CatBoost Algorithm**](delta_lake_bring_your_own_container_local_training_and_serving):  This example provides a detailed walkthrough on how to package a CatBoost algorithm for training on data fetched from Delta Lake, directly from S3, and and then serve your model with the Docker image you built. We have included also a Python file for local training and serving that can run on your local computer, for faster development.  
+
 - **Built-in scikit-learn Processing Job :**  
 
   - [**Built-in scikit-learn Processing Job**](scikit_learn_local_processing):  This example provides a detailed walkthrough on how to use the built-in scikit-learn Docker image for processing jobs. We have included also a Python file for processing jobs that can run on your local computer, for faster development.
@@ -78,7 +79,7 @@ The repository contains the following resources:
 - **Bring Your Own Container scikit-learn Processing Job :**  
 
   - [**Bring Your Own Container scikit-learn Processing Job**](scikit_learn_bring_your_own_container_local_processing):  This example provides a detailed walk-through on how to package a scikit-learn Docker image for processing jobs. We have included also a Python file for processing jobs that can run on your local computer, for faster development.
-  - [**Delta Lake Bring Your Own Container Processing Job**](delta_lake_bring_your_own_container_local_processing):  This example provides a detailed walk-through on how to package a scikit-learn Docker image for processing job that fetch data from a table on Delta Lake, and aggregate total COVID-19 cases per country. We have included also a Python file for processing jobs that can run on your local computer, for faster development.
+  - [**Delta Sharing Bring Your Own Container Processing Job**](delta_sharing_bring_your_own_container_local_processing):  This example provides a detailed walk-through on how to package a scikit-learn Docker image for processing job that fetch data from a table on Delta Lake using Delta Sharing, and aggregate total COVID-19 cases per country. We have included also a Python file for processing jobs that can run on your local computer, for faster development.
     
 **Note**: Those examples were tested on macOS and Linux.
 
