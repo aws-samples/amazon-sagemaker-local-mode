@@ -4,7 +4,6 @@ from gensim.models import KeyedVectors
 
 def input_fn(request_body, request_content_type):
     print(f"request_body: {request_body}")
-    print(type(request_body))
     if request_content_type == "application/json":
         payload = json.loads(request_body)
         instances = payload["instances"]
