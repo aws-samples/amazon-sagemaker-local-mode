@@ -2,6 +2,7 @@ import os
 import json
 from gensim.models import KeyedVectors
 
+
 def input_fn(request_body, request_content_type):
     print(f"request_body: {request_body}")
     if request_content_type == "application/json":

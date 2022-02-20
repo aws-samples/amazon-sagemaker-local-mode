@@ -1,4 +1,4 @@
-# This is a sample Python program that serve a Word2Vec model, trained with BlazingText algorithm with inference using gensim.
+# This is a sample Python program that serves a Word2Vec model, trained with BlazingText algorithm with inference, using gensim.
 # This implementation will work on your *local computer* or in the *AWS Cloud*.
 #
 # Prerequisites:
@@ -41,7 +41,7 @@ def main():
     print('Deploying endpoint in local mode')
     predictor = model.deploy(initial_instance_count=1, instance_type='local')
 
-    payload = {"instances": ["king","queen"]}
+    payload = {"instances": ["dog","cat"]}
     predictor.serializer = JSONSerializer()
     predictor.deserializer = JSONDeserializer()
     predictions = predictor.predict(payload)
