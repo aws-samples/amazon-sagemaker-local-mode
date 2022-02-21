@@ -9,13 +9,11 @@ def input_fn(request_body, request_content_type):
         payload = json.loads(request_body)
         instances = payload["instances"]
         return instances
+    else:
+        raise Exception(f"{request_content_type} content type not supported")
 
 
 def predict_fn(instances, word_vectors):
-    #########################################
-    # Do your custom preprocessing logic here
-    #########################################
-
     print(f"instances: {instances}")
     print("calling model")
     predictions = word_vectors.most_similar(positive=instances)
