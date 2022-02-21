@@ -1,4 +1,4 @@
-# This is a sample Python program that serves a Word2Vec model, trained with BlazingText algorithm with inference, using gensim.
+# This is a sample Python program that serves a Word2Vec model, trained with BlazingText algorithm with inference using gensim.
 # This implementation will work on your *local computer* or in the *AWS Cloud*.
 #
 # Prerequisites:
