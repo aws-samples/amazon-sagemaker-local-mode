@@ -86,7 +86,7 @@ def main():
     image = 'sagemaker-tensorflow2-no-tfs-local'
 
     role = DUMMY_IAM_ROLE
-    model_dir = 's3://aws-ml-blog/artifacts/tensorflow-script-mode-local-model-grpc-inference/model.tar.gz'
+    model_dir = 's3://aws-ml-blog/artifacts/tensorflow-script-mode-no-tfs-inference/model.tar.gz'
 
     model = Model(
         image_uri=image,
