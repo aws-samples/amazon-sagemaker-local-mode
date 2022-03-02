@@ -28,14 +28,14 @@ sagemaker_session = LocalSession()
 sagemaker_session.config = {'local': {'local_code': True}}
 
 
-def download_training_and_eval_data():
+def download_eval_data():
     if os.path.isfile('./data/train/x_train.npy') and \
             os.path.isfile('./data/test/x_test.npy') and \
             os.path.isfile('./data/train/y_train.npy') and \
             os.path.isfile('./data/test/y_test.npy'):
-        print('Training and evaluation datasets exist. Skipping Download')
+        print('Evaluation datasets exist. Skipping Download')
     else:
-        print('Downloading training and evaluation dataset')
+        print('Downloading evaluation dataset')
         data_dir = os.path.join(os.getcwd(), 'data')
         os.makedirs(data_dir, exist_ok=True)
 
@@ -81,7 +81,7 @@ def do_inference_on_local_endpoint(predictor):
 
 
 def main():
-    download_training_and_eval_data()
+    download_eval_data()
 
     image = 'sagemaker-tensorflow2-no-tfs-local'
 
