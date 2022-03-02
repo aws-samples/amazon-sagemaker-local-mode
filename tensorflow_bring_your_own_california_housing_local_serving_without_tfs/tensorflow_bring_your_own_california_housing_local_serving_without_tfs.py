@@ -84,6 +84,7 @@ def main():
     download_eval_data()
 
     image = 'sagemaker-tensorflow2-no-tfs-local'
+    endpoint_name = "my-local-endpoint"
 
     role = DUMMY_IAM_ROLE
     model_dir = 's3://aws-ml-blog/artifacts/tensorflow-script-mode-no-tfs-inference/model.tar.gz'
@@ -101,10 +102,10 @@ def main():
     endpoint = model.deploy(
         initial_instance_count=1,
         instance_type='local',
-        endpoint_name="my-local-endpoint"
+        endpoint_name=endpoint_name
     )
 
-    predictor = Predictor(endpoint_name="my-local-endpoint",
+    predictor = Predictor(endpoint_name=endpoint_name,
                           sagemaker_session=sagemaker_session,
                           serializer=JSONSerializer(),
                           deserializer=JSONDeserializer())
@@ -112,7 +113,7 @@ def main():
     do_inference_on_local_endpoint(predictor)
 
     print('About to delete the endpoint to stop paying (if in cloud mode).')
-    predictor.delete_endpoint(predictor.endpoint_name)
+    predictor.delete_endpoint()
 
 
 if __name__ == "__main__":
