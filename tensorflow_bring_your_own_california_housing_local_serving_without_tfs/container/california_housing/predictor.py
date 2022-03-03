@@ -78,6 +78,7 @@ def transformation():
 
     # Convert from numpy back to JSON
     predictions_lists = predictions.tolist()
+    print(f"Returning {len(predictions_lists)} predictions")
     result = json.dumps({"predictions": predictions_lists})
 
     return flask.Response(response=result, status=200, mimetype='application/json')
