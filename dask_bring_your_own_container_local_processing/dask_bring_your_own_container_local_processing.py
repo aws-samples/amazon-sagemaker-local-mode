@@ -12,7 +12,7 @@
 ########################################################################################################################
 
 from sagemaker.local import LocalSession
-from sagemaker.processing import ScriptProcessor, ProcessingInput, ProcessingOutput
+from sagemaker.processing import ScriptProcessor, ProcessingOutput
 import boto3
 
 
