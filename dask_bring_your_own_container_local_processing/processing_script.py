@@ -28,7 +28,7 @@ def main():
 
     print(f"Received arguments {args}")
 
-    if args["site_uri"]:
+    if "site_uri" in args:
         print(f"Processing web site JSON: {args['site_uri']}")
         filenames = (db.read_text(args['site_uri'])
                      .map(json.loads)
