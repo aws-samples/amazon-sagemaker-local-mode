@@ -86,8 +86,8 @@ def main():
                                               role=DUMMY_IAM_ROLE,
                                               instance_count=1,
                                               instance_type='local',
-                                              framework_version='2.4.1',
-                                              py_version='py37')
+                                              framework_version='2.8',
+                                              py_version='py39')
 
     inputs = {'train': 'file://./data/train', 'test': 'file://./data/test'}
     california_housing_estimator.fit(inputs)
