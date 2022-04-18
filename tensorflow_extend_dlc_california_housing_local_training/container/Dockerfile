@@ -16,7 +16,7 @@
 ARG REGION=us-east-1
 
 # SageMaker TensorFlow image
-FROM 763104351884.dkr.ecr.$REGION.amazonaws.com/tensorflow-training:2.4.1-cpu-py37
+FROM 763104351884.dkr.ecr.$REGION.amazonaws.com/tensorflow-training:2.8-cpu-py39
 
 # We will use the following packages in the training script.
 RUN pip3 install nltk gensim

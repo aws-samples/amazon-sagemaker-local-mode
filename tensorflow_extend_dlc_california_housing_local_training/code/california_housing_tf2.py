@@ -56,6 +56,8 @@ if __name__ == "__main__":
 
     args, _ = parse_args()
 
+    print(f'nltk version: {nltk.__version__}')
+
     print('Training data location: {}'.format(args.train))
     print('Test data location: {}'.format(args.test))
     x_train, y_train = get_train_data(args.train)
