@@ -16,9 +16,6 @@ import os
 import numpy as np
 import pandas as pd
 import sklearn.model_selection
-from sagemaker.deserializers import JSONDeserializer
-from sagemaker.estimator import Estimator
-from sagemaker.serializers import JSONSerializer
 from sagemaker.tensorflow import TensorFlow
 from sklearn.datasets import *
 from sklearn.preprocessing import StandardScaler
