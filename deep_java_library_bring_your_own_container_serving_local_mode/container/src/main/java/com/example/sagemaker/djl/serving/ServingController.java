@@ -1,16 +1,20 @@
 package com.example.sagemaker.djl.serving;
 
-import ai.djl.Application;
 import ai.djl.MalformedModelException;
-import ai.djl.engine.Engine;
 import ai.djl.inference.Predictor;
+import ai.djl.modality.Classifications;
 import ai.djl.modality.cv.Image;
 import ai.djl.modality.cv.ImageFactory;
-import ai.djl.modality.cv.output.DetectedObjects;
+import ai.djl.modality.cv.transform.CenterCrop;
+import ai.djl.modality.cv.transform.Normalize;
+import ai.djl.modality.cv.transform.Resize;
+import ai.djl.modality.cv.transform.ToTensor;
+import ai.djl.modality.cv.translator.ImageClassificationTranslator;
 import ai.djl.repository.zoo.Criteria;
 import ai.djl.repository.zoo.ModelNotFoundException;
-import ai.djl.repository.zoo.ModelZoo;
 import ai.djl.repository.zoo.ZooModel;
+import ai.djl.training.util.ProgressBar;
+import ai.djl.translate.Translator;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.slf4j.Logger;
@@ -23,13 +27,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 
 
 @RestController
 public class ServingController {
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-    private ZooModel<Image, DetectedObjects> model = null;
+    private ZooModel model = null;
 
     Logger logger = LoggerFactory.getLogger(ServingController.class);
 
@@ -58,14 +63,13 @@ public class ServingController {
 
         try {
             String inputImageUrl = payload.replaceAll("\"", "");
-            Predictor<Image, DetectedObjects> predictor = model.newPredictor();
             Image image = ImageFactory.getInstance().fromUrl(inputImageUrl);
-            DetectedObjects detection = predictor.predict(image);
-            logger.info("detection: {}", detection);
 
-            String json = GSON.toJson(detection);
-            logger.info("invoke_model - Returning json: {}",json);
-            return new ResponseEntity<>(json, HttpStatus.OK);
+            Predictor<Image, Classifications> predictor = model.newPredictor();
+            Classifications classifications = predictor.predict(image);
+
+            logger.info("invoke_model - Returning classifications: {}",classifications);
+            return new ResponseEntity<>(classifications.toJson(), HttpStatus.OK);
 
         } catch (Exception e) {
             logger.error("invoke_model - Error: ",e);
@@ -74,24 +78,28 @@ public class ServingController {
     }
 
 
-    private ZooModel<Image, DetectedObjects> init_model() throws ModelNotFoundException, MalformedModelException, IOException {
+    private ZooModel init_model() throws ModelNotFoundException, MalformedModelException, IOException {
         logger.info("init_model - Start");
-        String backbone;
-        if ("TensorFlow".equals(Engine.getInstance().getEngineName())) {
-            backbone = "mobilenet_v2";
-        } else {
-            backbone = "resnet50";
-        }
-        logger.info("backbone: " + backbone);
 
-        Criteria<Image, DetectedObjects> criteria =
-                Criteria.builder()
-                        .optApplication(Application.CV.OBJECT_DETECTION)
-                        .setTypes(Image.class, DetectedObjects.class)
-                        .optFilter("backbone", backbone)
-                        .build();
+        Translator<Image, Classifications> translator = ImageClassificationTranslator.builder()
+                .addTransform(new Resize(256))
+                .addTransform(new CenterCrop(224, 224))
+                .addTransform(new ToTensor())
+                .addTransform(new Normalize(
+                        new float[] {0.485f, 0.456f, 0.406f},
+                        new float[] {0.229f, 0.224f, 0.225f}))
+                .optApplySoftmax(true)
+                .build();
 
-        ZooModel<Image, DetectedObjects> model = ModelZoo.loadModel(criteria);
+        Criteria<Image, Classifications> criteria = Criteria.builder()
+                .setTypes(Image.class, Classifications.class)
+                .optModelPath(Paths.get("/opt/ml/model/build/pytorch_models/resnet18"))
+                .optOption("mapLocation", "true") // this model requires mapLocation for GPU
+                .optTranslator(translator)
+                .optProgress(new ProgressBar()).build();
+
+        ZooModel model = criteria.loadModel();
+
         logger.info("init_model - model loaded");
         return model;
     }

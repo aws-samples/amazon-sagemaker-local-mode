@@ -32,7 +32,7 @@ def main():
     model = Model(
         image_uri=image,
         role=role,
-        model_data="file://.",
+        model_data="s3://aws-ml-blog/artifacts/deep-java-library-bring-your-own-container-serving/model.tar.gz",
     )
 
     print('Deploying endpoint in local mode')
@@ -50,7 +50,7 @@ def main():
                           serializer=JSONSerializer(),
                           deserializer=JSONDeserializer())
 
-    predictions = predictor.predict("https://github.com/awslabs/djl/raw/master/examples/src/test/resources/dog_bike_car.jpg")
+    predictions = predictor.predict("https://raw.githubusercontent.com/pytorch/hub/master/images/dog.jpg")
     print(f'predictions: {predictions}')
 
     print('About to delete the endpoint to stop paying (if in cloud mode).')

@@ -20,10 +20,9 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation platform("ai.djl:bom:0.16.0")
+	implementation platform("ai.djl:api:0.16.0")
 
-	implementation "ai.djl.tensorflow:tensorflow-engine"
-	implementation "ai.djl.tensorflow:tensorflow-model-zoo"
+	implementation "ai.djl.pytorch:pytorch-engine:0.16.0"
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
