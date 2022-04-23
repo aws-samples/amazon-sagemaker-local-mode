@@ -32,7 +32,6 @@ import java.nio.file.Paths;
 public class ServingController {
 
     private ZooModel model = null;
-
     private Logger logger = LoggerFactory.getLogger(ServingController.class);
 
     @GetMapping(value = "/ping", produces = "application/json")
