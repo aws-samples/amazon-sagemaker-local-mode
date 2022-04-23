@@ -33,7 +33,7 @@ public class ServingController {
 
     private ZooModel model = null;
 
-    Logger logger = LoggerFactory.getLogger(ServingController.class);
+    private Logger logger = LoggerFactory.getLogger(ServingController.class);
 
     @GetMapping(value = "/ping", produces = "application/json")
     public ResponseEntity<?> ping() {
