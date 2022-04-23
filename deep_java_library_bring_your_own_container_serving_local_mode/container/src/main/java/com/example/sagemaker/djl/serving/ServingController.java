@@ -17,6 +17,7 @@ import ai.djl.training.util.ProgressBar;
 import ai.djl.translate.Translator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +34,9 @@ public class ServingController {
 
     private ZooModel model = null;
     private Logger logger = LoggerFactory.getLogger(ServingController.class);
+
+    @Value("${model.path:/opt/ml/model/build/pytorch_models/resnet18}")
+    private String modelPath;
 
     @GetMapping(value = "/ping", produces = "application/json")
     public ResponseEntity<?> ping() {
@@ -89,7 +93,7 @@ public class ServingController {
 
         Criteria<Image, Classifications> criteria = Criteria.builder()
                 .setTypes(Image.class, Classifications.class)
-                .optModelPath(Paths.get("/opt/ml/model/build/pytorch_models/resnet18"))
+                .optModelPath(Paths.get(modelPath))
                 .optOption("mapLocation", "true") // this model requires mapLocation for GPU
                 .optTranslator(translator)
                 .optProgress(new ProgressBar()).build();
