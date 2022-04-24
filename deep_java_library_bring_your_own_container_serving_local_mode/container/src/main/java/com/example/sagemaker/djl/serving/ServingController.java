@@ -35,7 +35,7 @@ public class ServingController {
     private ZooModel model = null;
     private Logger logger = LoggerFactory.getLogger(ServingController.class);
 
-    @Value("${model.path:/opt/ml/model/build/pytorch_models/resnet18}")
+    @Value("${model.path:/opt/ml/model/resnet18}")
     private String modelPath;
 
     @GetMapping(value = "/ping", produces = "application/json")
@@ -80,6 +80,7 @@ public class ServingController {
 
     private ZooModel init_model() throws ModelNotFoundException, MalformedModelException, IOException {
         logger.info("init_model - Start");
+        logger.info("init_model - modelPath: {}", modelPath);
 
         Translator<Image, Classifications> translator = ImageClassificationTranslator.builder()
                 .addTransform(new Resize(256))
