@@ -1,4 +1,5 @@
 # This is a sample Python program that performs inference with Deep Java Library (DJL).
+# Example was referenced from: https://docs.djl.ai/jupyter/load_pytorch_model.html
 # This implementation will work on your local computer.
 #
 # Prerequisites:
