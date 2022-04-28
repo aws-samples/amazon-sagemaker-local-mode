@@ -28,60 +28,7 @@ sagemaker_session = LocalSession()
 sagemaker_session.config = {'local': {'local_code': True}}
 
 
-def download_eval_data():
-    if os.path.isfile('./data/train/x_train.npy') and \
-            os.path.isfile('./data/test/x_test.npy') and \
-            os.path.isfile('./data/train/y_train.npy') and \
-            os.path.isfile('./data/test/y_test.npy'):
-        print('Evaluation datasets exist. Skipping Download')
-    else:
-        print('Downloading evaluation dataset')
-        data_dir = os.path.join(os.getcwd(), 'data')
-        os.makedirs(data_dir, exist_ok=True)
-
-        train_dir = os.path.join(os.getcwd(), 'data/train')
-        os.makedirs(train_dir, exist_ok=True)
-
-        test_dir = os.path.join(os.getcwd(), 'data/test')
-        os.makedirs(test_dir, exist_ok=True)
-
-        data_set = fetch_california_housing()
-
-        X = pd.DataFrame(data_set.data, columns=data_set.feature_names)
-        Y = pd.DataFrame(data_set.target)
-
-        # We partition the dataset into 2/3 training and 1/3 test set.
-        x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, Y, test_size=0.33)
-
-        scaler = StandardScaler()
-        scaler.fit(x_train)
-        x_train = scaler.transform(x_train)
-        x_test = scaler.transform(x_test)
-
-        np.save(os.path.join(train_dir, 'x_train.npy'), x_train)
-        np.save(os.path.join(test_dir, 'x_test.npy'), x_test)
-        np.save(os.path.join(train_dir, 'y_train.npy'), y_train)
-        np.save(os.path.join(test_dir, 'y_test.npy'), y_test)
-
-        print('Downloading completed')
-
-
-def do_inference_on_local_endpoint(predictor):
-    print(f'\nStarting Inference on endpoint (local).')
-
-    x_test = np.load('./data/test/x_test.npy')
-    y_test = np.load('./data/test/y_test.npy')
-
-    data = {"instances": x_test[:10]}
-    results = predictor.predict(data)['predictions']
-
-    flat_list = [float('%.1f' % (item)) for sublist in results for item in sublist]
-    print('predictions: \t{}'.format(np.array(flat_list)))
-    print('target values: \t{}'.format(y_test[:10].round(decimals=1)))
-
-
 def main():
-    download_eval_data()
 
     image = 'sagemaker-tensorflow2-no-tfs-local'
     endpoint_name = "my-local-endpoint"
@@ -110,7 +57,11 @@ def main():
                           serializer=JSONSerializer(),
                           deserializer=JSONDeserializer())
 
-    do_inference_on_local_endpoint(predictor)
+    data = {"instances": [[1.53250854, -2.03172922, 1.15884022, 0.38779065, 0.1527185, -0.03002725, -0.925089, 0.9848863]]}
+    results = predictor.predict(data)['predictions']
+
+    flat_list = [float('%.1f' % (item)) for sublist in results for item in sublist]
+    print('predictions: \t{}'.format(np.array(flat_list)))
 
     print('About to delete the endpoint to stop paying (if in cloud mode).')
     predictor.delete_endpoint()
