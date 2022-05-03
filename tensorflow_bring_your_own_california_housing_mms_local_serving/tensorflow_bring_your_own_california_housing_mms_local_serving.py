@@ -1,4 +1,5 @@
-# This is a sample Python program that trains a BYOC TensorFlow model with no TFS, and then performs inference.
+# This is a sample Python program that deploy a TensorFlow model using multi-model server, and then performs inference.
+# multi-model server: https://github.com/awslabs/multi-model-server
 # This implementation will work on your local computer.
 # *NOTE*: With SageMaker Local Mode you will be able to test only one model in MME mode.
 #
@@ -8,7 +9,7 @@
 #       pip install 'sagemaker[local]'
 #   2. Docker Desktop has to be installed on your computer, and running.
 #   3. Open terminal and run the following commands:
-#       docker build  -t sagemaker-tensorflow2-mme-local container/.
+#       docker build  -t sagemaker-tensorflow2-mms-local container/.
 ########################################################################################################################
 
 from sagemaker import Model, LocalSession, Predictor
@@ -24,7 +25,7 @@ sagemaker_session.config = {'local': {'local_code': True}}
 
 def main():
 
-    image = 'sagemaker-tensorflow2-mme-local'
+    image = 'sagemaker-tensorflow2-mms-local'
     endpoint_name = "my-local-endpoint"
 
     role = DUMMY_IAM_ROLE
