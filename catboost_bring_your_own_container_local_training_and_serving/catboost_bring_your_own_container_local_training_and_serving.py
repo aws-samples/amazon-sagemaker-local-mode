@@ -11,6 +11,7 @@
 ########################################################################################################################
 
 import pandas as pd
+import os
 from sagemaker.estimator import Estimator
 from sagemaker.local import LocalSession
 from sagemaker.predictor import csv_serializer
@@ -36,8 +37,11 @@ valX['target'] = y_test
 
 testX = pd.DataFrame(X_test, columns=data.feature_names)
 
+os.makedirs('data/train', exist_ok=True)
 local_train = './data/train/california_train.csv'
+os.makedirs('data/validation', exist_ok=True)
 local_validation = './data/validation/california_validation.csv'
+os.makedirs('data/test', exist_ok=True)
 local_test = './data/test/california_test.csv'
 
 trainX.to_csv(local_train, header=None, index=False)
