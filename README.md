@@ -124,7 +124,7 @@ We assume the root folder of the project is `~/Documents/dev/`
 7. Navigate to PyCharm -> Preferences -> Python Interpreter, and click "Add"
 ![Add new Interpreter](img/python_interpreter_initial_add_venv.png)
 
-8. Add the Virtual environment by specifying the location of the virtual environment to be created: `/Users/<MY USER>/Documents/dev/sagemaker-python-sdk`
+8. Add a new Virtual environment by specifying the location of the virtual environment to be created: `/Users/<MY USER>/Documents/dev/sagemaker-python-sdk`
 ![Add new venv](img/python_interpreter_save_new_venv.png)
 
 9. Click OK
