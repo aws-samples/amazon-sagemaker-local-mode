@@ -88,7 +88,7 @@ The repository contains the following resources:
     
 **Note**: Those examples were tested on macOS and Linux.
 
-### Installation Instructions
+### Prerequisites
 
 1. [Create an AWS account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html) if you do not already have one and login.
 
@@ -96,11 +96,40 @@ The repository contains the following resources:
 
 3. [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-gui) and [Configure AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config).
 
-4. Clone the repo onto your local development machine using `git clone`.
+4. Make sure you have Python3 installed `python --version`
 
-5. Open the project in any IDE of your choice in order to run the example Python files.
+5. Make sure you have pip installed `pip --version`
 
-6. Follow the instructions on which Python packages to install in each of the example Python file.
+6. Clone the repo onto your local development machine using `git clone`.
+
+7. Open the project in any IDE of your choice in order to run the example Python files.
+
+8. Follow the instructions on which Python packages to install in each of the example Python file.
+
+### Installation Instructions for PyCharm
+We assume the root folder of the project is `~/Documents/dev/`
+1. Open Terminal and navigate to the project root folder: `cd ~/Documents/dev/`
+2. Create a directory for the GitHub projects: `mkdir GitHub`
+3. Navigate to `~/Documents/dev/GitHub/`
+4. Clone the repo onto your local development machine using `git clone https://github.com/aws-samples/amazon-sagemaker-local-mode`
+5. Open PyCharm
+6. Open `amazon-sagemaker-local-mode` project
+7. Navigate to PyCharm -> Preferences -> Python Interpreter, and click "Add"
+![Add new Interpreter](img/python_interpreter_initial_add_venv.png)
+8. Add the Virtual environment by specifying the location of the virtual environment to be created: `/Users/<MY USER>/Documents/dev/sagemaker-python-sdk`
+![Add new venv](img/python_interpreter_save_new_venv.png)
+9. Click OK
+10. On the Python Interpreter Screen, click OK.
+![Final add venv](img/python_interpreter_final_add_venv.png)
+11. Open terminal (inside PyCharm) and install the requirements: `python -m pip install -r requirements.txt`
+![install requirements](img/install_requirements_txt.png)
+12. Once completed, navigate to `tensorflow_script_mode_california_housing_local_training_and_serving` folder, and double click on `tensorflow_script_mode_california_housing_local_training_and_serving.py` file
+![open tf example](img/open_tf_training_and_serving.png)
+13. Right click -> Run `tensorflow_script_mode_california_housing_local_training_and_serving.py`
+![run tf example](img/run_tf_training_and_serving.png)
+14. The container image download might take a few minutes to complete, but eventually you will View the output
+![view tf output](img/output_tf_training_and_serving.png)
+
 
 ## Questions?
 
