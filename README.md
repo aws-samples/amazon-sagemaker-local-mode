@@ -100,11 +100,6 @@ The repository contains the following resources:
 
 5. Make sure you have pip installed `pip --version`
 
-6. Clone the repo onto your local development machine using `git clone`.
-
-7. Open the project in any IDE of your choice in order to run the example Python files.
-
-8. Follow the instructions on which Python packages to install in each of the example Python file.
 
 ### Installation Instructions for PyCharm
 We assume the root folder of the project is `~/Documents/dev/`
