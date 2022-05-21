@@ -119,7 +119,7 @@ We assume the root folder of the project is `~/Documents/dev/`
 
 5. Open PyCharm
 
-6. Open `amazon-sagemaker-local-mode` project
+6. Open `amazon-sagemaker-local-mode` project from `~/Documents/dev/GitHub/amazon-sagemaker-local-mode/`
 
 7. Navigate to PyCharm -> Preferences -> Python Interpreter, and click "Add"
 ![Add new Interpreter](img/python_interpreter_initial_add_venv.png)
