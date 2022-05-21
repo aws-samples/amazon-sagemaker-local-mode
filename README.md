@@ -121,27 +121,29 @@ We assume the root folder of the project is `~/Documents/dev/`
 
 6. Open `amazon-sagemaker-local-mode` project from `~/Documents/dev/GitHub/amazon-sagemaker-local-mode/`
 
-7. Navigate to PyCharm -> Preferences -> Python Interpreter, and click "Add"
+7. Now you will add a new virtual environment and install the required Python dependencies to run the demos.  
+
+8. Navigate to PyCharm -> Preferences -> Python Interpreter, and click "Add"
 ![Add new Interpreter](img/python_interpreter_initial_add_venv.png)
 
-8. Add a new Virtual environment by specifying the location of the virtual environment to be created: `/Users/<MY USER>/Documents/dev/sagemaker-python-sdk`
+9. Add a new Virtual environment by specifying the location of the virtual environment to be created: `/Users/<MY USER>/Documents/dev/sagemaker-python-sdk`
 ![Add new venv](img/python_interpreter_save_new_venv.png)
 
-9. Click OK
+10. Click OK
 
-10. On the Python Interpreter Screen, click OK.
+11. On the Python Interpreter Screen, click OK.
 ![Final add venv](img/python_interpreter_final_add_venv.png)
 
-11. Open terminal (inside PyCharm) and install the requirements: `python -m pip install -r requirements.txt`
+12. Open terminal (inside PyCharm) and install the requirements: `python -m pip install -r requirements.txt`
 ![install requirements](img/install_requirements_txt.png)
 
-12. Once completed, navigate to `tensorflow_script_mode_california_housing_local_training_and_serving` folder, and double click on `tensorflow_script_mode_california_housing_local_training_and_serving.py` file
+13. Once completed, navigate to `tensorflow_script_mode_california_housing_local_training_and_serving` folder, and double click on `tensorflow_script_mode_california_housing_local_training_and_serving.py` file
 ![open tf example](img/open_tf_training_and_serving.png)
 
-13. Right click -> Run `tensorflow_script_mode_california_housing_local_training_and_serving.py`
+14. Right click -> Run `tensorflow_script_mode_california_housing_local_training_and_serving.py`
 ![run tf example](img/run_tf_training_and_serving.png)
 
-14. The container image download might take a few minutes to complete, but eventually you will View the output
+15. The container image download might take a few minutes to complete, but eventually you will View the output
 ![view tf output](img/output_tf_training_and_serving.png)
 
 
