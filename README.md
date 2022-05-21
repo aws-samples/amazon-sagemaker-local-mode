@@ -113,7 +113,7 @@ We assume the root folder of the project is `~/Documents/dev/`
 
 2. Create a directory for the GitHub projects: `mkdir GitHub`
 
-3. Navigate to `~/Documents/dev/GitHub/`
+3. Navigate to `~/Documents/dev/GitHub/`: `cd GitHub`
 
 4. Clone the repo onto your local development machine using `git clone https://github.com/aws-samples/amazon-sagemaker-local-mode`
 
