@@ -1,8 +1,7 @@
 import torch
 import torchvision
 import torchvision.transforms as transforms
-import matplotlib.pyplot as plt
-import numpy as np
+
 
 classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
@@ -27,10 +26,3 @@ def get_test_data_loader(download):
                                            download=download, transform=transform)
     return torch.utils.data.DataLoader(testset, batch_size=4,
                                        shuffle=False, num_workers=2)
-
-
-# function to show an image
-def imshow(img):
-    img = img / 2 + 0.5  # unnormalize
-    npimg = img.numpy()
-    plt.imshow(np.transpose(npimg, (1, 2, 0)))
