@@ -33,7 +33,7 @@ def main():
     model = PyTorchModel(
         role=role,
         model_data=model_dir,
-        framework_version='1.7.1',
+        framework_version='1.8',
         source_dir='code',
         py_version='py3',
         entry_point='inference.py'
