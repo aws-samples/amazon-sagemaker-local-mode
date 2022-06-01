@@ -1,4 +1,4 @@
-# This is a sample Python program that runs a simple scikit-learn processing using the SKLearnProcessor.
+# This is a sample Python program that runs a simple scikit-learn processing using the FrameworkProcessor to perfrom word_tokenize using nltk .
 # This implementation will work on your *local computer*.
 #
 # Prerequisites:
