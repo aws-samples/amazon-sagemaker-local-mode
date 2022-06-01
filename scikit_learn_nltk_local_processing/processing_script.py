@@ -1,9 +1,6 @@
 import os
 import sys
 from datetime import datetime
-import subprocess
-subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "/opt/ml/processing/dependencies/requirements.txt"])
-
 import nltk
 nltk.download('punkt')
 from nltk.tokenize import word_tokenize

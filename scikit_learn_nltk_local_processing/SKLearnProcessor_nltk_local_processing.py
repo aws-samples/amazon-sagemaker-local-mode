@@ -10,10 +10,10 @@
 #   3. You should have AWS credentials configured on your local machine
 #      in order to be able to pull the docker image from ECR.
 ########################################################################################################################
-
 from sagemaker.local import LocalSession
 from sagemaker.processing import ProcessingInput, ProcessingOutput
-from sagemaker.sklearn.processing import SKLearnProcessor
+from sagemaker.processing import FrameworkProcessor
+from sagemaker.sklearn.estimator import SKLearn
 
 sagemaker_session = LocalSession()
 sagemaker_session.config = {'local': {'local_code': True}}
@@ -21,27 +21,29 @@ sagemaker_session.config = {'local': {'local_code': True}}
 # For local training a dummy role will be sufficient
 role = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
 
-processor = SKLearnProcessor(framework_version='0.20.0',
-                             instance_count=1,
-                             instance_type='local',
-                             role=role)
+processor = FrameworkProcessor(
+    estimator_cls=SKLearn,
+    framework_version='0.20.0',
+    instance_count=1,
+    instance_type='local',
+    role=role
+)
 
 print('Starting processing job.')
 print('Note: if launching for the first time in local mode, container image download might take a few minutes to complete.')
-processor.run(code='processing_script.py',
-                      inputs=[
-                            ProcessingInput(
-                              source='./dependencies/',
-                              destination='/opt/ml/processing/dependencies/'),
-                            ProcessingInput(
-                              source='./input_data/',
-                              destination='/opt/ml/processing/input_data/')
-                      ],
-                      outputs=[ProcessingOutput(
-                          output_name='tokenized_words_data',
-                          source='/opt/ml/processing/processed_data/')],
-                      arguments=['job-type', 'word-tokenize']
-                     )
+processor.run(
+    code='processing_script.py',
+    dependencies=['./dependencies/requirements.txt'],
+    inputs=[
+        ProcessingInput(
+          source='./input_data/',
+          destination='/opt/ml/processing/input_data/')
+   ],
+    outputs=[ProcessingOutput(
+        output_name='tokenized_words_data',
+        source='/opt/ml/processing/processed_data/')],
+    arguments=['job-type', 'word-tokenize']
+)
 
 preprocessing_job_description = processor.jobs[-1].describe()
 output_config = preprocessing_job_description['ProcessingOutputConfig']
