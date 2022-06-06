@@ -104,3 +104,13 @@ tensorflow_extend_dlc_california_housing_local_training/data/test/x_test.npy
 tensorflow_extend_dlc_california_housing_local_training/data/test/y_test.npy
 tensorflow_extend_dlc_california_housing_local_training/data/train/x_train.npy
 tensorflow_extend_dlc_california_housing_local_training/data/train/y_train.npy
+pytorch_wandb_script_mode_local_training/data/MNIST/processed/test.pt
+pytorch_wandb_script_mode_local_training/data/MNIST/processed/training.pt
+pytorch_wandb_script_mode_local_training/data/MNIST/raw/t10k-images-idx3-ubyte
+pytorch_wandb_script_mode_local_training/data/MNIST/raw/t10k-images-idx3-ubyte.gz
+pytorch_wandb_script_mode_local_training/data/MNIST/raw/t10k-labels-idx1-ubyte
+pytorch_wandb_script_mode_local_training/data/MNIST/raw/t10k-labels-idx1-ubyte.gz
+pytorch_wandb_script_mode_local_training/data/MNIST/raw/train-images-idx3-ubyte
+pytorch_wandb_script_mode_local_training/data/MNIST/raw/train-images-idx3-ubyte.gz
+pytorch_wandb_script_mode_local_training/data/MNIST/raw/train-labels-idx1-ubyte
+pytorch_wandb_script_mode_local_training/data/MNIST/raw/train-labels-idx1-ubyte.gz
