@@ -11,7 +11,7 @@
 #   4. Run `hebert_model.py` to create the model:
 #      `python hebert_model.py`
 #   5. Create `model.tar.gz` file for SageMaker to use:
-#      `cd model && tar -czf model.tar.gz * && cd ..`
+#      `cd model && tar -czf ../model.tar.gz * && cd ..`
 #   6. Docker Desktop installed and running on your computer:
 #      `docker ps`
 #   7. You should have AWS credentials configured on your local machine
@@ -33,9 +33,9 @@ def main():
     print('Deploying local mode endpoint')
     print('Note: if launching for the first time in local mode, container image download might take a few minutes to complete.')
 
-    pytorch_model = PyTorchModel(model_data='./model/model.tar.gz',
+    pytorch_model = PyTorchModel(model_data='./model.tar.gz',
                                  role=role,
-                                 framework_version="1.7.1",
+                                 framework_version="1.8",
                                  source_dir="code",
                                  py_version="py3",
                                  entry_point="inference.py")
