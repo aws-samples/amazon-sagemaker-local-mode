@@ -1,7 +1,7 @@
 ARG REGION=us-east-1
 
 # SageMaker PyTorch image
-FROM 763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-inference:1.8-cpu-py3
+FROM 763104351884.dkr.ecr.${REGION}.amazonaws.com/pytorch-inference:1.8-cpu-py3
 
 RUN git clone --single-branch --branch feature/add_transformers https://github.com/OFA-Sys/OFA.git
 RUN pip install OFA/transformers/
