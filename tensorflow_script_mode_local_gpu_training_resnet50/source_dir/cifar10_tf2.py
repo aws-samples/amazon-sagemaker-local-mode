@@ -4,8 +4,9 @@ import os
 
 # Third Party
 import numpy as np
-from tensorflow.keras.applications.resnet50 import ResNet50
+from tensorflow.keras.applications import ResNet50
 from tensorflow.keras.utils import to_categorical
+from tensorflow import keras
 
 
 def model(x_train, y_train, x_valid, y_valid, batch_size, epoch, optimizer):
@@ -23,7 +24,9 @@ def model(x_train, y_train, x_valid, y_valid, batch_size, epoch, optimizer):
     X_train /= 128.0
     X_valid /= 128.0
 
-    model = ResNet50(weights=None, input_shape=(32, 32, 3), classes=10)
+    keras.backend.set_image_data_format('channels_first')
+
+    model = ResNet50(weights=None, input_shape=np.shape(X_train)[1:], classes=10)
     model.compile(optimizer=optimizer,
                   loss="sparse_categorical_crossentropy",
                   metrics=["accuracy"])
