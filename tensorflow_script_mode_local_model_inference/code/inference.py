@@ -1,8 +1,7 @@
 import json
-import requests
-import boto3
 
-s3 = boto3.resource('s3')
+import requests
+
 
 def handler(data, context):
     """Handle request.
