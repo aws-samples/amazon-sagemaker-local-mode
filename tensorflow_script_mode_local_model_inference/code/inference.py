@@ -25,15 +25,9 @@ def _process_input(data, context):
         # pass through json (assumes it's correctly formed)
         d = data.read().decode('utf-8')
         print('input data: {}'.format(d))
-
         input_json = json.loads(d)
 
-        print('reading object from S3')
-        obj = s3.Object(input_json['bucket_name'], input_json['object_name'])
-        body = obj.get()['Body'].read()
-        print('body: {}'.format(body))
-
-        return body
+        return input_json
 
     if context.request_content_type == 'text/csv':
         # very simple csv handler

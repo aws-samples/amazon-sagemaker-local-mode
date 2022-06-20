@@ -28,10 +28,10 @@ def main():
 
     model = TensorFlowModel(
         entry_point='inference.py',
-        source_dir = './code',
+        source_dir='./code',
         role=role,
         model_data=model_dir,
-        framework_version='2.3.0',
+        framework_version='2.8',
     )
 
     print('Deploying endpoint in local mode')
@@ -44,12 +44,10 @@ def main():
 
     print('Endpoint deployed in local mode')
 
-    dummy_inputs = {
-        'bucket_name': 'aws-ml-blog',
-        'object_name': 'artifacts/tensorflow-script-mode-local-model-inference/instances.json'
-    }
+    with open("instances.json", 'r') as f:
+        payload = f.read().strip()
 
-    predictions = predictor.predict(dummy_inputs)
+    predictions = predictor.predict(payload)
     print("predictions: {}".format(predictions))
 
     print('About to delete the endpoint')
