@@ -14,7 +14,7 @@
 ###############################################################################################
 
 from sagemaker.local import LocalSession
-from sagemaker.tensorflow import TensorFlow, TensorFlowModel
+from sagemaker.tensorflow import TensorFlowModel
 
 DUMMY_IAM_ROLE = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
 
