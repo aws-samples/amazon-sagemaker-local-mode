@@ -1,4 +1,4 @@
-# This is a sample Python program that trains a simple TensorFlow California Housing model.
+# This is a sample Python program that trains a TensorFlow California Housing model and deploys Endpoint for serving.
 # This implementation will work on your *local computer*.
 #
 # Prerequisites:
