@@ -14,7 +14,7 @@ For full details on how this works:
 ## SageMaker local mode training and serving in PyCharm
 This repository examples will work in any IDE on your local machine. 
 
-Here you can see a TensorFlow example running on PyCharm. **The data for training and serving is also located on your local machine file system**.
+Here you can see a TensorFlow example running on PyCharm. **The data for processing, training and serving is also located on your local machine file system**.
 
 #### SageMaker local mode training in PyCharm
 
