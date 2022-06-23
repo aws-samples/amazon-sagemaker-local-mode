@@ -118,3 +118,7 @@ data/test/x_test.npy
 data/test/y_test.npy
 data/train/x_train.npy
 data/train/y_train.npy
+tensorflow_bring_your_own_california_housing_local_training_toolkit/data/test/x_test.npy
+tensorflow_bring_your_own_california_housing_local_training_toolkit/data/test/y_test.npy
+tensorflow_bring_your_own_california_housing_local_training_toolkit/data/train/x_train.npy
+tensorflow_bring_your_own_california_housing_local_training_toolkit/data/train/y_train.npy
