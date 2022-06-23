@@ -114,3 +114,7 @@ pytorch_wandb_script_mode_local_training/data/MNIST/raw/train-images-idx3-ubyte
 pytorch_wandb_script_mode_local_training/data/MNIST/raw/train-images-idx3-ubyte.gz
 pytorch_wandb_script_mode_local_training/data/MNIST/raw/train-labels-idx1-ubyte
 pytorch_wandb_script_mode_local_training/data/MNIST/raw/train-labels-idx1-ubyte.gz
+data/test/x_test.npy
+data/test/y_test.npy
+data/train/x_train.npy
+data/train/y_train.npy
