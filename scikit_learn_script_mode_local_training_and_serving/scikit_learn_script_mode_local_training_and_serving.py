@@ -60,7 +60,7 @@ def main():
     sklearn = SKLearn(
         entry_point="scikit_learn_iris.py",
         source_dir='code',
-        framework_version="0.23-1",
+        framework_version="1.0-1",
         instance_type="local",
         role=DUMMY_IAM_ROLE,
         hyperparameters={"max_leaf_nodes": 30},
