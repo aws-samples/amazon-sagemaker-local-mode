@@ -12,8 +12,11 @@
 
 from sagemaker import TrainingInput
 from sagemaker.xgboost import XGBoost, XGBoostModel
+from sagemaker.local import LocalSession
 
 DUMMY_IAM_ROLE = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
+LOCAL_SESSION = LocalSession()
+LOCAL_SESSION.config={'local': {'local_code': True}} # Ensure full code locality, see: https://sagemaker.readthedocs.io/en/stable/overview.html#local-mode
 
 
 def do_inference_on_local_endpoint(predictor, libsvm_str):
@@ -43,10 +46,12 @@ def main():
         role=DUMMY_IAM_ROLE,
         instance_count=1,
         instance_type='local',
-        framework_version="1.2-1"
+        framework_version="1.2-1",
+        sagemaker_session=LOCAL_SESSION,
+        output_path='file://model/'    # Save trained model and any additional artifacts locally
     )
 
-    train_input = TrainingInput("file://./data/train/abalone", content_type="text/libsvm")
+    train_input = TrainingInput("file://data/train/abalone", content_type="text/libsvm")
 
     xgb_script_mode_estimator.fit({"train": train_input, "validation": train_input})
 
@@ -58,8 +63,10 @@ def main():
     xgb_inference_model = XGBoostModel(
         model_data=model_data,
         role=DUMMY_IAM_ROLE,
-        entry_point="./code/inference.py",
+        entry_point="inference.py",
+        source_dir="./code",
         framework_version="1.2-1",
+        sagemaker_session=LOCAL_SESSION
     )
 
     print('Deploying endpoint in local mode')
