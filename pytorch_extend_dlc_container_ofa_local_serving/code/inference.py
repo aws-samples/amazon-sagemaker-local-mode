@@ -4,14 +4,14 @@ import io
 import numpy as np
 from PIL import Image
 from torchvision import transforms
-from transformers import OFATokenizer, OFAForConditionalGeneration
+from transformers import OFATokenizer, OFAModel
 
 NPY_CONTENT_TYPE = 'application/x-npy'
 
 
 class OFAImageCaptionPredictor(object):
     def __init__(self, model_dir):
-        self.model = OFAForConditionalGeneration.from_pretrained(model_dir)
+        self.model = OFAModel.from_pretrained(model_dir)
         self.tokenizer = OFATokenizer.from_pretrained(model_dir)
 
     def patch_resize_transform(self, image):
