@@ -179,3 +179,4 @@ xgboost_script_mode_local_training_and_serving/code/build/lib/build/lib/build/li
 xgboost_script_mode_local_training_and_serving/model/model.tar.gz
 xgboost_script_mode_local_training_and_serving/model/output.tar.gz
 xgboost_script_mode_local_training_and_serving/model/xgboost-model
+pytorch_extend_dlc_container_ofa_local_serving/model.tar.gz
