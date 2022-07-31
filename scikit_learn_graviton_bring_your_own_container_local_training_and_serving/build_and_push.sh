@@ -1,11 +1,10 @@
-
 # The name of our algorithm
-algorithm_name=sagemaker-catboost-regressor
+algorithm_name=sagemaker-scikit-learn-graviton-regressor-local
 
 cd container
 
-chmod +x catboost_regressor/train
-chmod +x catboost_regressor/serve
+chmod +x ./linear_regressor/train
+chmod +x ./linear_regressor/serve
 
 account=$(aws sts get-caller-identity --query Account --output text)
 
@@ -31,5 +30,3 @@ aws ecr get-login-password --region ${region}|docker login --username AWS --pass
 
 docker build -t ${algorithm_name} .
 docker tag ${algorithm_name} ${fullname}
-
-docker push ${fullname}
