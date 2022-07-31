@@ -35,7 +35,7 @@ trainX['target'] = y_train
 valX = pd.DataFrame(X_test, columns=data.feature_names)
 valX['target'] = y_test
 
-testX = pd.DataFrame(X_test, columns=data.feature_names)
+testX = pd.DataFrame(X_test, columns=data.feature_names).head(10)
 
 os.makedirs('data/train', exist_ok=True)
 local_train = './data/train/california_train.csv'

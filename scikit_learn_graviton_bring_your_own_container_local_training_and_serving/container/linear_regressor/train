@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# A sample training component that trains a simple CatBoost Regressor tree model.
+# A sample training component that trains a simple scikit-learn LinearRegression model.
 # This implementation works in File mode and makes no assumptions about the input file names.
 # Input is specified as CSV with a data point in each row and the labels in the first column.
 
@@ -62,18 +62,20 @@ def train():
         validation_df = pd.concat(raw_data)
 
         # Assumption is that the label is the last column
-        print('building training dataset')
+        print('Building training dataset')
         X_train = train_df.iloc[:, :-1].values
         y_train = train_df.iloc[:, -1:].values
 
         # define and train model
+        print('Training model')
         model = LinearRegression()
-
         model.fit(X_train, y_train)
+
+        print(f'Model score: {model.score(X_train, y_train)}')
 
         # persist model
         path = os.path.join(model_path, model_file_name)
-        print('saving model file to {}'.format(path))
+        print('Saving model file to {}'.format(path))
         with open(path, 'wb') as out:
             pickle.dump(model, out)
 

@@ -9,17 +9,16 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
          nginx \
          ca-certificates
 
-
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.10.3-Linux-aarch64.sh
 RUN chmod a+x Miniconda3-py39_4.10.3-Linux-aarch64.sh
 RUN bash Miniconda3-py39_4.10.3-Linux-aarch64.sh -b
 ENV PATH /root/miniconda3/bin/:$PATH
 
-COPY graviton-scikit-learn.yml ./
-RUN conda env create -f graviton-scikit-learn.yml
+COPY ml-dependencies.yml ./
+RUN conda env create -f ml-dependencies.yml
 
-ENV PATH /root/miniconda3/envs/graviton-scikit-learn/bin:$PATH
-RUN /bin/bash -c "source activate graviton-scikit-learn"
+ENV PATH /root/miniconda3/envs/ml-dependencies/bin:$PATH
+RUN /bin/bash -c "source activate ml-dependencies"
 
 # Set some environment variables. PYTHONUNBUFFERED keeps Python from buffering our standard
 # output stream, which means that logs can be delivered to the user quickly. PYTHONDONTWRITEBYTECODE
