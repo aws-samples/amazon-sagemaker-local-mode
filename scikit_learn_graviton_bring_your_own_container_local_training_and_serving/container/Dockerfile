@@ -18,7 +18,6 @@ COPY ml-dependencies.yml ./
 RUN conda env create -f ml-dependencies.yml
 
 ENV PATH /root/miniconda3/envs/ml-dependencies/bin:$PATH
-RUN /bin/bash -c "source activate ml-dependencies"
 
 # Set some environment variables. PYTHONUNBUFFERED keeps Python from buffering our standard
 # output stream, which means that logs can be delivered to the user quickly. PYTHONDONTWRITEBYTECODE
