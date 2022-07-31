@@ -1,0 +1,8 @@
+name: graviton-scikit-learn
+dependencies:
+  - numpy
+  - pandas
+  - scikit-learn
+  - flask
+  - gevent
+  - gunicorn
