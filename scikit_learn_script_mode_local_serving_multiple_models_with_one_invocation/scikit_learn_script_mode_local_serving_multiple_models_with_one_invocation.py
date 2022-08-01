@@ -76,7 +76,7 @@ def main():
     )
 
     predictor.serializer = sagemaker.serializers.JSONSerializer()
-    predictor.deserializer = sagemaker.deserializers.CSVDeserializer()
+    predictor.deserializer = sagemaker.deserializers.JSONDeserializer()
 
     payload = gen_random_house()[1:]
 
