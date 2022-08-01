@@ -10,12 +10,10 @@
 #      in order to be able to pull the docker image from ECR.
 ###############################################################################################
 
-import pandas as pd
 import numpy as np
-from sagemaker import LocalSession
-from sagemaker.sklearn import SKLearn, SKLearnModel
 import sagemaker
-
+from sagemaker import LocalSession
+from sagemaker.sklearn import SKLearnModel
 
 DUMMY_IAM_ROLE = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
 MAX_YEAR = 2022
