@@ -14,10 +14,11 @@ import numpy as np
 import sagemaker
 from sagemaker import LocalSession
 from sagemaker.sklearn import SKLearnModel
+import boto3
+import tarfile
+
 
 DUMMY_IAM_ROLE = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
-LOCAL_SESSION = LocalSession()
-LOCAL_SESSION.config={'local': {'local_code': True}} # Ensure full code locality, see: https://sagemaker.readthedocs.io/en/stable/overview.html#local-mode
 MAX_YEAR = 2022
 
 def gen_price(house):
@@ -54,17 +55,22 @@ def gen_random_house():
 
 
 def main():
-    role = DUMMY_IAM_ROLE
-    model_dir = 's3://aws-ml-blog/artifacts/scikit_learn_serving_multiple_models_with_one_invocation/model.tar.gz'
+
+    print('Downloading model file from S3')
+    s3 = boto3.client('s3')
+    s3.download_file('aws-ml-blog', 'artifacts/scikit_learn_serving_multiple_models_with_one_invocation/model.tar.gz', 'model.tar.gz')
+    print('Model downloaded')
+
+    tarf = tarfile.open('model.tar.gz', 'r:gz')
+    print(f'Found model files in model.tar.gz: {tarf.getnames()}')
 
     model = SKLearnModel(
-        role=role,
-        model_data=model_dir,
+        role=DUMMY_IAM_ROLE,
+        model_data='file://model.tar.gz',
         framework_version='0.23-1',
         py_version='py3',
         source_dir='code',
-        entry_point='inference.py',
-        sagemaker_session=LOCAL_SESSION
+        entry_point='inference.py'
     )
 
     print('Deploying endpoint in local mode')
