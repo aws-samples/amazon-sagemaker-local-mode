@@ -85,7 +85,13 @@ The repository contains the following resources:
   - [**Bring Your Own Container scikit-learn Processing Job**](scikit_learn_bring_your_own_container_local_processing):  This example provides a detailed walk-through on how to package a scikit-learn Docker image for processing jobs. We have included also a Python file for processing jobs that can run on your local computer, for faster development.
   - [**Delta Sharing Bring Your Own Container Processing Job**](delta_sharing_bring_your_own_container_local_processing):  This example provides a detailed walk-through on how to package a scikit-learn Docker image for processing job that fetch data from a table on Delta Lake using Delta Sharing, and aggregate total COVID-19 cases per country. We have included also a Python file for processing jobs that can run on your local computer, for faster development.
   - [**Dask Bring Your Own Container Processing Job**](dask_bring_your_own_container_local_processing):  This example provides a detailed walk-through on how to package a Dask Docker image for processing job that fetch JSON file from a website, and outputs the filenames found. We have included also a Python file for processing jobs that can run on your local computer, for faster development.
-    
+
+- **Bring Your Own Container MacBook M1/ARM/Apple Silicon resources:**  
+
+- [**Bring Your Own Container scikit-learn Algorithm - Train/Serve**](scikit_learn_graviton_bring_your_own_container_local_training_and_serving):  This example provides a detailed walkthrough on how to package a scikit-learn algorithm for training and production-ready hosting. We have included also a Python file for local training and serving that can run on your local M1 MacBook computer, for faster development.
+- [**Bring Your Own Container TensorFlow Algorithm - Train**](tensorflow_graviton_bring_your_own_california_housing_local_training):  This example provides a detailed walkthrough on how to package a TensorFlow algorithm for training. We have included also a Python file for local training that can run on your local M1 MacBook computer, for faster development.
+- [**Bring Your Own Container TensorFlow Algorithm - SageMaker Training Toolkit**](tensorflow_graviton_bring_your_own_california_housing_local_training_toolkit):  This example provides a detailed walkthrough on how to package a TensorFlow algorithm for training using the SageMaker Training Toolkit. We have included also a Python file for local training that can run on your local M1 MacBook computer, for faster development.
+
 **Note**: Those examples were tested on macOS and Linux.
 
 ### Prerequisites
