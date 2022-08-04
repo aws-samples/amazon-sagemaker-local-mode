@@ -1,0 +1,6 @@
+name: ml-dependencies
+dependencies:
+  - numpy
+  - pandas
+  - scikit-learn
+  - tensorflow==2.8.2

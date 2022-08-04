@@ -1,0 +1,109 @@
+#!/usr/bin/env python
+
+import json
+import os
+import sys
+import traceback
+
+import numpy as np
+import tensorflow as tf
+
+# These are the paths to where SageMaker mounts interesting things in your container.
+prefix = '/opt/ml/'
+input_path = os.path.join(prefix,'input/data')
+output_path = os.path.join(prefix, 'output')
+model_path = os.path.join(prefix, 'model')
+param_path = os.path.join(prefix, 'input/config/hyperparameters.json')
+
+# This algorithm has a single channel of input data called 'training'. Since we run in
+# File mode, the input files are copied to the directory specified here.
+channel_name_train = 'train'
+training_path = os.path.join(input_path, channel_name_train)
+channel_name_test = 'test'
+testing_path = os.path.join(input_path, channel_name_test)
+
+def get_train_data(train_dir):
+
+    x_train = np.load(os.path.join(train_dir, 'x_train.npy'))
+    y_train = np.load(os.path.join(train_dir, 'y_train.npy'))
+    print('x train', x_train.shape,'y train', y_train.shape)
+    return x_train, y_train
+
+
+def get_test_data(test_dir):
+
+    x_test = np.load(os.path.join(test_dir, 'x_test.npy'))
+    y_test = np.load(os.path.join(test_dir, 'y_test.npy'))
+    print('x test', x_test.shape,'y test', y_test.shape)
+    return x_test, y_test
+
+
+def get_model():
+
+    inputs = tf.keras.Input(shape=(8,))
+    hidden_1 = tf.keras.layers.Dense(8, activation='tanh')(inputs)
+    hidden_2 = tf.keras.layers.Dense(4, activation='sigmoid')(hidden_1)
+    outputs = tf.keras.layers.Dense(1)(hidden_2)
+    return tf.keras.Model(inputs=inputs, outputs=outputs)
+
+
+def train():
+    print('Starting the training.')
+
+    try:
+        print('Tensorflow version: {}'.format(tf.__version__))
+        # Read in any hyperparameters that the user passed with the training job
+        print('Reading hyperparameters data: {}'.format(param_path))
+        with open(param_path) as json_file:
+            hyperparameters_data = json.load(json_file)
+        print('hyperparameters_data: {}'.format(hyperparameters_data))
+
+        print('Training data location: {}'.format(training_path))
+        print('Test data location: {}'.format(testing_path))
+        x_train, y_train = get_train_data(training_path)
+        x_test, y_test = get_test_data(testing_path)
+
+        batch_size = int(hyperparameters_data['batch_size'])
+        epochs = int(hyperparameters_data['epochs'])
+        learning_rate = float(hyperparameters_data['learning_rate'])
+        print('batch_size = {}, epochs = {}, learning rate = {}'.format(batch_size, epochs, learning_rate))
+
+        model = get_model()
+        optimizer = tf.keras.optimizers.SGD(learning_rate)
+        model.compile(optimizer=optimizer, loss='mse')
+        model.fit(x_train,
+                  y_train,
+                  batch_size=batch_size,
+                  epochs=epochs,
+                  validation_data=(x_test, y_test),
+                  verbose=1)
+
+        # evaluate on test set
+        scores = model.evaluate(x_test, y_test, batch_size, verbose=1)
+        print("\nTest MSE :", scores)
+
+        # save model
+        model.save(model_path + '/1')
+        print('Training complete.')
+
+        # A zero exit code causes the job to be marked a Succeeded.
+        sys.exit(0)
+    except Exception as e:
+        # Write out an error file. This will be returned as the failureReason in the
+        # DescribeTrainingJob result.
+        trc = traceback.format_exc()
+        with open(os.path.join(output_path, 'failure'), 'w') as s:
+            s.write('Exception during training: ' + str(e) + '\n' + trc)
+        # Printing this causes the exception to be in the training job logs, as well.
+        print('Exception during training: ' + str(e) + '\n' + trc, file=sys.stderr)
+        # A non-zero exit code causes the training job to be marked as Failed.
+        sys.exit(255)
+
+
+if __name__ == '__main__':
+    print(f'TensorFlow version: {tf.__version__}')
+
+    train()
+
+    # A zero exit dependencies causes the job to be marked a Succeeded.
+    sys.exit(0)
