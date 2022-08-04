@@ -56,13 +56,16 @@ def gen_random_house():
 
 def main():
 
-    print('Downloading model file from S3')
+    print('Downloading model.tar.gz file from S3')
     s3 = boto3.client('s3')
     s3.download_file('aws-ml-blog', 'artifacts/scikit_learn_serving_multiple_models_with_one_invocation/model.tar.gz', 'model.tar.gz')
     print('Model downloaded')
 
     tarf = tarfile.open('model.tar.gz', 'r:gz')
-    print(f'Found model files in model.tar.gz: {tarf.getnames()}')
+    print(f'Found model files in model.tar.gz:')
+    for file in tarf.getnames():
+        if file.startswith('model'):
+            print(file)
 
     model = SKLearnModel(
         role=DUMMY_IAM_ROLE,
