@@ -1,4 +1,4 @@
-# This is a sample Python program that trains a BYOC TensorFlow model with no TFS, and then performs inference.
+# This is a sample Python program that shows how to serve a BYOC TensorFlow model with no TFS, and perform inference.
 # This implementation will work on your local computer.
 #
 # Prerequisites:
