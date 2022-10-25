@@ -1,4 +1,4 @@
-# This is a sample Python program for deploying a trained model to a SageMaker endpoint.
+# This is a sample Python program for deploying a trained model to a SageMaker endpoint using Graviton instance.
 # This implementation will work on your *ARM based local computer*.
 #
 # This example is based on: https://github.com/aws/amazon-sagemaker-examples/blob/master/frameworks/tensorflow/get_started_mnist_deploy.ipynb
