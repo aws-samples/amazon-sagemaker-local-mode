@@ -57,8 +57,8 @@ def main():
     model = PyTorchModel(
         role=role,
         model_data=model_dir,
-        framework_version='1.8',
-        py_version='py3',
+        framework_version='1.12',
+        py_version='py38',
         entry_point='inference.py'
     )
 
