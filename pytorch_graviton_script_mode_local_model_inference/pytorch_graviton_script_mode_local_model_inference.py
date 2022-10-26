@@ -3,7 +3,7 @@
 #
 # Prerequisites:
 #   1. Install required Python packages:
-#       pip install boto3 sagemaker pandas matplotlib torch torchvision
+#       pip install boto3 sagemaker pandas matplotlib
 #       pip install 'sagemaker[local]'
 #   2. Docker Desktop has to be installed on your computer, and running.
 #   3. You should have AWS credentials configured on your local machine
