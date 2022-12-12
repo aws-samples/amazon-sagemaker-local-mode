@@ -19,6 +19,7 @@ import os
 import joblib
 import pandas as pd
 from sklearn import tree
+from sklearn.metrics import mean_squared_error
 
 if __name__ == "__main__":
     print("Training Started")
@@ -31,6 +32,7 @@ if __name__ == "__main__":
     parser.add_argument("--output-data-dir", type=str, default=os.environ["SM_OUTPUT_DATA_DIR"])
     parser.add_argument("--model-dir", type=str, default=os.environ["SM_MODEL_DIR"])
     parser.add_argument("--train", type=str, default=os.environ["SM_CHANNEL_TRAIN"])
+    parser.add_argument("--validation", type=str, default=os.environ["SM_CHANNEL_VALIDATION"])
 
     args = parser.parse_args()
     print("Got Args: {}".format(args))
@@ -57,10 +59,20 @@ if __name__ == "__main__":
     # as your training my require in the ArgumentParser above.
     max_leaf_nodes = args.max_leaf_nodes
 
-    # Now use scikit-learn's decision tree classifier to train the model.
-    clf = tree.DecisionTreeClassifier(max_leaf_nodes=max_leaf_nodes)
+    # Now use scikit-learn's decision tree regression to train the model.
+    clf = tree.DecisionTreeRegressor(max_leaf_nodes=max_leaf_nodes)
     clf = clf.fit(train_X, train_y)
 
+    input_files = [os.path.join(args.validation, file) for file in os.listdir(args.validation)]
+    raw_data = [pd.read_csv(file, header=None, engine="python") for file in input_files]
+    validation_data = pd.concat(raw_data)
+    # labels are in the first column
+    validation_y = validation_data.iloc[:, 0]
+    validation_X = validation_data.iloc[:, 1:]
+    #
+    predictions = clf.predict(validation_X)
+    error = mean_squared_error(predictions, validation_y)
+    print(f"RMSE: {error}")
     # Print the coefficients of the trained classifier, and save the coefficients
     joblib.dump(clf, os.path.join(args.model_dir, "model.joblib"))
 
