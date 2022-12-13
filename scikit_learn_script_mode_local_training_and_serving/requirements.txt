@@ -1,4 +1,5 @@
 numpy
 pandas
+sklearn
 sagemaker>=2.0.0<3.0.0
 sagemaker[local]
