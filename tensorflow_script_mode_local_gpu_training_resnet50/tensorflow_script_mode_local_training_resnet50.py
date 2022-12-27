@@ -1,4 +1,4 @@
-# This is a sample Python program that trains a simple TensorFlow CIFAR-10 model.
+# This is a sample Python program that trains a simple TensorFlow CIFAR-10 model on GPU.
 # This implementation will work on your *local computer* or in the *AWS Cloud*.
 #
 # Prerequisites:
