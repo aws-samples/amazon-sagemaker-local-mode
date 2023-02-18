@@ -20,6 +20,6 @@ The problem is because of failures to output the model on temporary folders crea
 8. Open Visual Studio Code and install the [WSL Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
 ![install the WSL Extension](img/windows_image_01.png)
 10. In Visual Studio Code: Choose `File` -> `Open Folder` and open the `amazon-sagemaker-local-mode` folder located on Ubuntu, you just cloned in previous step.
-11. Once you run a sample code, you'll see that the temporary folders created for the training job by SageMaker Local, are now of Linux format, using WSL2.
+11. Once you run a sample code, you'll see that the temporary folders created for the training job by SageMaker Local, are now of Linux format, using WSL2. You should see `[WSL:Ubuntu]` in the upper bar of the Visual Studio Code window.
 ![Running a sample with WSL2](img/windows_image_02.png)
 
