@@ -11,7 +11,7 @@ For full details on how this works:
 
 - Read the Machine Learning Blog post at: https://aws.amazon.com/blogs/machine-learning/use-the-amazon-sagemaker-local-mode-to-train-on-your-notebook-instance/
 
-## SageMaker local mode training and serving in PyCharm
+## SageMaker local mode training and serving in PyCharm/Visual Studio Code
 This repository examples will work in any IDE on your local machine. 
 
 Here you can see a TensorFlow example running on PyCharm. **The data for processing, training and serving is also located on your local machine file system**.
@@ -94,19 +94,21 @@ The repository contains the following resources:
   - [**Bring Your Own Container TensorFlow Algorithm - Train**](tensorflow_graviton_bring_your_own_california_housing_local_training):  This example provides a detailed walkthrough on how to package a TensorFlow algorithm for training. We have included also a Python file for local training that can run on your local M1 MacBook computer, for faster development.
   - [**Bring Your Own Container TensorFlow Algorithm - SageMaker Training Toolkit**](tensorflow_graviton_bring_your_own_california_housing_local_training_toolkit):  This example provides a detailed walkthrough on how to package a TensorFlow algorithm for training using the SageMaker Training Toolkit. We have included also a Python file for local training that can run on your local M1 MacBook computer, for faster development.
 
-**Note**: Those examples were tested on macOS and Linux.
+**Note**: Those examples were tested on macOS, Linux and Windows.
 
 ### Prerequisites
 
 1. [Create an AWS account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html) if you do not already have one and login.
 
-2. Install [Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
+2. **Mac users**: Install [Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
 
-3. [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-gui) and [Configure AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config).
+3. **Windows users**: Install Docker Desktop for Windows, WSL 2 and then, a Linux distro from the Microsoft Store. You can follow the instructions [here](WINDOWS_INSTALLATION.md).  
 
-4. Make sure you have Python3 installed `python --version`
+4. [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-gui) and [Configure AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config).
 
-5. Make sure you have pip installed `pip --version`
+5. Make sure you have Python3 installed `python --version`
+
+6. Make sure you have pip installed `pip --version`
 
 
 ### Installation Instructions for PyCharm
@@ -152,7 +154,7 @@ We assume the root folder of the project is `~/Documents/dev/`
 
 ## Questions?
 
-Please contact [@e_sela](https://twitter.com/e_sela) or raise an issue on this repo.
+Please contact [Eitan Sela on LinkedIn](https://www.linkedin.com/in/eitan-sela/) or raise an issue on this repo.
 
 ## License
 
