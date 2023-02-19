@@ -1,5 +1,6 @@
 # SageMaker Local Mode on Windows
 
+##  Default Windows paths will cause an error!
 SageMaker Local Mode will not work on Windows unless you install WSL 2 and then, a Linux distro (Ubuntu is the default).
 
 If you try to run the examples in this repo, you'll eventually get `TypeError: object of type 'int' has no len()` error after completing the training job.
@@ -9,7 +10,7 @@ The problem is because of failures to output the model on temporary folders crea
 
 ![Error training in Windows - directory structure](img/windows_error_02.png)
 
-### Installation Instructions for Windows and Visual Studio Code
+## Installation Instructions for Windows and Visual Studio Code
 
 1. Install [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/).
 2. Install [Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install). We assume you install the default Ubuntu distro.
