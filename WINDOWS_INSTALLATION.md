@@ -10,7 +10,7 @@ The problem is because of failures to output the model on temporary folders crea
 
 ![Error training in Windows - directory structure](img/windows_error_02.png)
 
-## Installation Instructions for Windows and Visual Studio Code
+## Installation Instructions for Windows and Visual Studio Code - using Ubuntu paths
 
 1. Install [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/).
 2. Install [Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install). We assume you install the default Ubuntu distro.
