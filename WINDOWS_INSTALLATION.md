@@ -1,4 +1,4 @@
-# SageMaker Local Mode on Windows
+# Use SageMaker Local Mode on Windows
 
 ##  Default Windows paths will cause an error!
 SageMaker Local Mode will not work on Windows unless you install WSL 2 and then, a Linux distro (Ubuntu is the default).
