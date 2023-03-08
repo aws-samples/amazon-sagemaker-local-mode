@@ -1,4 +1,4 @@
-# This is a sample Python program that use scikit-learn container to perfrom inference using 4 models.
+# This is a sample Python program that use scikit-learn container to perform inference using 4 models.
 # This implementation will work on your *local computer* or in the *AWS Cloud*.
 #
 # Prerequisites:
