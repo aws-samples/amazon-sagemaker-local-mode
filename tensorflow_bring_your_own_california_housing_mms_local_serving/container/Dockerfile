@@ -24,7 +24,8 @@ RUN pip3 --no-cache-dir install tensorflow==2.8.0 \
                                 multi-model-server \
                                 sagemaker-inference \
                                 retrying \
-                                pandas
+                                pandas \
+                                protobuf==3.20.*
 
 # Copy entrypoint script to the image
 COPY dockerd-entrypoint.py /usr/local/bin/dockerd-entrypoint.py
