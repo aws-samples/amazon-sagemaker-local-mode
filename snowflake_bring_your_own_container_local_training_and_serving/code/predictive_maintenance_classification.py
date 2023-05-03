@@ -27,6 +27,7 @@ from snowflake.snowpark.session import Session
 from snowflake.snowpark.functions import *
 from snowflake.snowpark.types import *
 
+
 def get_snowflake_session(args):
     # Create a Secrets Manager client
     session = boto3.session.Session()
@@ -107,12 +108,14 @@ if __name__ == "__main__":
     X = maintenance_hum_df.drop(columns=["MACHINE_FAILURE"]).to_numpy()
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.25, random_state=123)
 
+    # train the model
     logistic_model = LogisticRegression(random_state=0, verbose=1).fit(X_train, y_train)
 
     # auc score
     y_pred = logistic_model.predict_proba(X_test)[:, 1]
     print(f"ROC AUC Score: {roc_auc_score(y_test, y_pred)}")
 
+    # save the model file
     joblib.dump(logistic_model, os.path.join(args.model_dir, "model.joblib"))
     print("Training Completed")
 
