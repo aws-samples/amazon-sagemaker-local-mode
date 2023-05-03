@@ -1,6 +1,5 @@
-# This is a sample Python program that trains a simple scikit-learn machine predictive maintenance classification model.
+# This is a sample Python program that trains a simple scikit-learn machine predictive maintenance classification model
 # on the dataset fetched from Snowflake, using Snowpark Python package.
-# This implementation will work on your *local computer* or in the *AWS Cloud*.
 #
 # Getting Started with Snowpark for Machine Learning on SageMaker:
 #  - https://quickstarts.snowflake.com/guide/getting_started_with_snowpark_for_machine_learning_on_sagemaker/index.html
