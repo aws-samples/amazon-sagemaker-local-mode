@@ -46,9 +46,7 @@ def get_snowflake_session(args):
 
     # Decrypts secret using the associated KMS key.
     secret = json.loads(get_secret_value_response['SecretString'])
-    print(f"Secret: {secret}")
-    account=secret["account"]
-
+    
     connection_parameters = {
         "account": secret["account"],
         "user": secret["user"], 
