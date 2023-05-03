@@ -14,17 +14,16 @@
 from __future__ import print_function
 
 import argparse
-import os
 import json
-import joblib
-import boto3
+import os
 
-from sklearn.model_selection import train_test_split
+import boto3
+import joblib
 from sklearn.linear_model import LogisticRegression
-from sklearn import metrics
-from sklearn.metrics import roc_auc_score, roc_curve, RocCurveDisplay
-from snowflake.snowpark.session import Session
+from sklearn.metrics import roc_auc_score
+from sklearn.model_selection import train_test_split
 from snowflake.snowpark.functions import *
+from snowflake.snowpark.session import Session
 from snowflake.snowpark.types import *
 
 

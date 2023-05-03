@@ -20,17 +20,7 @@
 #       docker build -t sagemaker-scikit-learn-snowpark-local container/.
 ########################################################################################################################
 
-import os
-
-import numpy as np
-import pandas as pd
-import sklearn.model_selection
-from sagemaker.deserializers import JSONDeserializer
 from sagemaker.estimator import Estimator
-from sagemaker.serializers import JSONSerializer
-from sklearn.datasets import *
-from sklearn.preprocessing import StandardScaler
-
 
 DUMMY_IAM_ROLE = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
 
