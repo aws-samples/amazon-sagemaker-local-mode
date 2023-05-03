@@ -85,7 +85,7 @@ if __name__ == "__main__":
     print(f"city_udf table: {hum_udi_df.to_pandas().shape}")
     print("Fetching from Snowflake completed")
 
-    # join together the dataframes and prepare training dataset
+    # Join together the dataframes and prepare training dataset
     maintenance_city = maintenance_df.join(hum_udi_df, ["UDI"])
     maintenance_hum = maintenance_city.join(humidity_df,
     (maintenance_city.col("CITY") == humidity_df.col("CITY_NAME"))).select(
@@ -93,34 +93,26 @@ if __name__ == "__main__":
         col("AIR_TEMPERATURE_K"), col("PROCESS_TEMPERATURE"), col("ROTATIONAL_SPEED_RPM"), col("TORQUE_NM"),
         col("TOOL_WEAR_MIN"), col("HUMIDITY_RELATIVE_AVG"), col("MACHINE_FAILURE"))
 
-    # write training set to snowflake and materialize the data frame into a pandas data frame
+    # Write training set to snowflake and materialize the data frame into a pandas data frame
     maintenance_hum.write.mode("overwrite").save_as_table("MAINTENANCE_HUM")
     maintenance_hum_df = session.table('MAINTENANCE_HUM').to_pandas()
 
-    # drop redundant column
+    # Drop redundant column
     maintenance_hum_df = maintenance_hum_df.drop(columns=["TYPE"])
 
-    # split data into train and test
+    # Split data into train and test
     y = maintenance_hum_df[["MACHINE_FAILURE"]].to_numpy()
     X = maintenance_hum_df.drop(columns=["MACHINE_FAILURE"]).to_numpy()
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.25, random_state=123)
 
-    # train the model
+    # Train the model
     logistic_model = LogisticRegression(random_state=0, verbose=1).fit(X_train, y_train)
 
-    # auc score
+    # AUC score
     y_pred = logistic_model.predict_proba(X_test)[:, 1]
     print(f"ROC AUC Score: {roc_auc_score(y_test, y_pred)}")
 
-    # save the model file
+    # Save the model file
     joblib.dump(logistic_model, os.path.join(args.model_dir, "model.joblib"))
     print("Training Completed")
 
-
-def model_fn(model_dir):
-    """Deserialized and return fitted model
-
-    Note that this should have the same name as the serialized model in the main method
-    """
-    clf = joblib.load(os.path.join(model_dir, "model.joblib"))
-    return clf
