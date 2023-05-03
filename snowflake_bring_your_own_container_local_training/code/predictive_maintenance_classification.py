@@ -76,26 +76,9 @@ if __name__ == "__main__":
     session = get_snowflake_session(args)
 
     print("Start fetching from Snowflake")
-    maintenance_df = session.table('maintenance')
-    humidity_df = session.table('humidity')
-    hum_udi_df = session.table('city_udf')
-
-    print(f"maintenance table: {maintenance_df.to_pandas().shape}")
-    print(f"humidity table: {humidity_df.to_pandas().shape}")
-    print(f"city_udf table: {hum_udi_df.to_pandas().shape}")
-    print("Fetching from Snowflake completed")
-
-    # Join together the dataframes and prepare training dataset
-    maintenance_city = maintenance_df.join(hum_udi_df, ["UDI"])
-    maintenance_hum = maintenance_city.join(humidity_df,
-    (maintenance_city.col("CITY") == humidity_df.col("CITY_NAME"))).select(
-        col("TYPE"),
-        col("AIR_TEMPERATURE_K"), col("PROCESS_TEMPERATURE"), col("ROTATIONAL_SPEED_RPM"), col("TORQUE_NM"),
-        col("TOOL_WEAR_MIN"), col("HUMIDITY_RELATIVE_AVG"), col("MACHINE_FAILURE"))
-
-    # Write training set to snowflake and materialize the data frame into a pandas data frame
-    maintenance_hum.write.mode("overwrite").save_as_table("MAINTENANCE_HUM")
     maintenance_hum_df = session.table('MAINTENANCE_HUM').to_pandas()
+    print(f"MAINTENANCE_HUM table: {maintenance_hum_df.shape}")
+    print("Fetching from Snowflake completed")
 
     # Drop redundant column
     maintenance_hum_df = maintenance_hum_df.drop(columns=["TYPE"])
