@@ -1,0 +1,8 @@
+boto3
+numpy
+pandas
+scikit-learn
+sagemaker
+snowflake-snowpark-python
+snowflake-connector-python[pandas]
+sagemaker-training
