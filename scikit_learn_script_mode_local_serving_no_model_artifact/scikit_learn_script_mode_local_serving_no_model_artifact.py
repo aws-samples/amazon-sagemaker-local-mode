@@ -1,4 +1,4 @@
-# This is a sample Python program that use scikit-learn container to perfrom average on input.
+# This is a sample Python program that use scikit-learn container to perform average on input.
 # This implementation will work on your *local computer* or in the *AWS Cloud*.
 #
 # Prerequisites:
