@@ -1,6 +1,5 @@
-# This is a sample Python program that uses the OFA pretrained model to perform inference using a Docker image that extends AWS DLC PyTorch.
-# https://huggingface.co/OFA-Sys/OFA-tiny
-# This implementation will work on your local computer.
+# This is a sample Python program that uses the OFA pretrained model to perform inference using a Docker image that
+# extends AWS DLC PyTorch. https://huggingface.co/OFA-Sys/OFA-tiny This implementation will work on your local computer.
 #
 # Prerequisites:
 #   1. Install required Python packages:
