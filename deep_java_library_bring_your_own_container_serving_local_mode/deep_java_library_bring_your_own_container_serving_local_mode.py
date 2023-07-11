@@ -40,7 +40,7 @@ def main():
     print(
         'Note: if launching for the first time in local mode, container image download might take a few minutes to complete.')
 
-    endpoint = model.deploy(
+    model.deploy(
         initial_instance_count=1,
         instance_type='local',
         endpoint_name=endpoint_name
