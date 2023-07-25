@@ -37,7 +37,6 @@ def main():
         role=DUMMY_IAM_ROLE,
         model_data="file://model.tar.gz",
         image_uri=image,
-        framework_version='1.8',
         sagemaker_session=LOCAL_SESSION
     )
 
