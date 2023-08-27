@@ -42,7 +42,7 @@ def main():
     model = SKLearnModel(
         role=role,
         model_data='file://./model.tar.gz',
-        framework_version='0.23-1',
+        framework_version='1.2-1',
         py_version='py3',
         source_dir='code',
         entry_point='inference.py'
