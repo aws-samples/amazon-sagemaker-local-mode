@@ -1,4 +1,4 @@
-# This is a sample Python program that trains a BYOC TensorFlow model.
+# This is a sample Python program that trains a Bring your Own container (BYOC) TensorFlow model.
 # This implementation will work on your local MacBook M1 computer*.
 #
 # Prerequisites:
