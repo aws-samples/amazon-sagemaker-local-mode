@@ -1,5 +1,6 @@
 # This is a sample Python program that runs a simple scikit-learn processing using the FrameworkProcessor to perform
-# word_tokenize using nltk . This implementation will work on your *local computer*.
+# word_tokenize using nltk. nltk is installed using dependencies installed from requirements.txt file.
+# This implementation will work on your *local computer*.
 #
 # Prerequisites:
 #   1. Install required Python packages:
