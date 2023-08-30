@@ -24,7 +24,7 @@ role = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRol
 
 processor = FrameworkProcessor(
     estimator_cls=SKLearn,
-    framework_version='0.20.0',
+    framework_version='1.2-1',
     instance_count=1,
     instance_type='local',
     role=role
