@@ -1,4 +1,4 @@
-# This is a sample Python program that trains a BYOC CatBoost model with sagemaker-training-toolkit..
+# This is a sample Python program that trains a BYOC CatBoost model with sagemaker-training-toolkit.
 # This implementation will work on your *local computer*.
 #
 # Prerequisites:
