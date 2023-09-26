@@ -18,6 +18,8 @@ from sagemaker.sklearn import SKLearn, SKLearnModel
 
 
 DUMMY_IAM_ROLE = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
+sess = LocalSession()
+sess.config = {'local': {'local_code': True}}
 
 
 def do_inference_on_local_endpoint(predictor):
@@ -45,7 +47,8 @@ def main():
         framework_version='1.2-1',
         py_version='py3',
         source_dir='code',
-        entry_point='inference.py'
+        entry_point='inference.py',
+        sagemaker_session=sess
     )
 
     print('Deploying endpoint in local mode')
@@ -59,7 +62,7 @@ def main():
     do_inference_on_local_endpoint(predictor)
 
     print('About to delete the endpoint to stop paying (if in cloud mode).')
-    predictor.delete_endpoint(predictor.endpoint_name)
+    predictor.delete_endpoint()
 
 
 if __name__ == "__main__":
