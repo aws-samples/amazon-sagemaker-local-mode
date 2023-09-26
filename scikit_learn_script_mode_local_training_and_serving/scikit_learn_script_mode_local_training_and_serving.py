@@ -16,6 +16,8 @@ import numpy as np
 import os
 
 from sagemaker.sklearn import SKLearn
+from sagemaker.local import LocalSession
+
 import sagemaker
 import boto3
 from sklearn import datasets
@@ -27,12 +29,14 @@ local_mode = True
 if local_mode:
     instance_type = "local"
     IAM_ROLE = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
+    sess = LocalSession()
+    sess.config = {'local': {'local_code': True}}  # Ensure full code locality, see: https://sagemaker.readthedocs.io/en/stable/overview.html#local-mode
 else:
     instance_type = "ml.m5.xlarge"
     IAM_ROLE = 'arn:aws:iam::<ACCOUNT>:role/service-role/AmazonSageMaker-ExecutionRole-XXX'
+    sess = sagemaker.Session()
+    bucket = sess.default_bucket()                    # Set a default S3 bucket
 
-sess = sagemaker.Session()
-bucket = sess.default_bucket()                    # Set a default S3 bucket
 prefix = 'DEMO-local-and-managed-infrastructure'
 
 def download_training_and_eval_data():
@@ -74,7 +78,8 @@ def main():
     sklearn = SKLearn(
         entry_point="scikit_learn_california.py",
         source_dir='code',
-        framework_version="1.0-1",
+        framework_version="1.2-1",
+        sagemaker_session=sess,
         instance_type=instance_type,
         role=IAM_ROLE,
         hyperparameters={"max_leaf_nodes": 30},
@@ -105,7 +110,7 @@ def main():
     do_inference_on_local_endpoint(predictor)
 
     print('About to delete the endpoint to stop paying (if in cloud mode).')
-    predictor.delete_endpoint(predictor.endpoint_name)
+    predictor.delete_endpoint()
 
 
 if __name__ == "__main__":
