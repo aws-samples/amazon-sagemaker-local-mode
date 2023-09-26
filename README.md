@@ -151,6 +151,45 @@ We assume the root folder of the project is `~/Documents/dev/`
 15. The container image download might take a few minutes to complete, but eventually you will View the output
 ![view tf output](img/output_tf_training_and_serving.png)
 
+### Installation Instructions for SageMaker Notebook instances
+
+1. Create a new SageMaker Notebook instance. Choose `ml.c5.xlarge` and set volume size to 64 GB. This is required since SageMaker Dokcer images that are fetched are few GB in size    
+![Create SageMaker Local Notebook](img/create_sagemaker_local_notebook.png)
+
+2. Open JupyterLab, and from there open terminal: File -> New -> Terminal
+![Open Terminal](img/open_terminal.png)
+
+3. List Conda environments by running `conda env list`
+![List conda envs](img/list_conda_envs.png)
+We will use `python3` kernel.
+  
+4. Activate specific Conda environment by running the following commands:
+`source ~/anaconda3/etc/profile.d/conda.sh`
+and then
+`conda activate python3`
+![Activate specific Conda environment](img/activate_specific_conda_environment.png)
+
+5. Clone the GitHub repo by running 
+- `cd SageMaker`
+- `git clone https://github.com/aws-samples/amazon-sagemaker-local-mode`
+
+6. Create virtual environment and then install dependencies:
+- `cd amazon-sagemaker-local-mode`
+- `python -m venv venv`
+- `source venv/bin/activate`
+- `pip install -r requirements.txt`
+
+7. Test the environment
+- `cd scikit_learn_script_mode_local_training_and_serving`
+- `python scikit_learn_script_mode_local_training_and_serving.py`
+you should see `Login Succeeded` message. It will take few minutes to download the Docker image so be patient.
+![Start run python](img/start_run_python.png)
+
+8. Once script is completed, you should see `Predictions`, `Actual` and `RMSE`
+![Inference Success](img/inference_success.png)
+
+9. Press Control-C to exit the program.
+
 
 ## Questions?
 
