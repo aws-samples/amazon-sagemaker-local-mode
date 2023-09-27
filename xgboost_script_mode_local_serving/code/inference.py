@@ -34,6 +34,7 @@ def input_fn(request_body, request_content_type):
 
     Return a DMatrix (an object that can be passed to predict_fn).
     """
+    print(f"request_body: {request_body}, request_content_type: {request_content_type}")
     if request_content_type == "text/libsvm":
         return xgb_encoders.libsvm_to_dmatrix(request_body)
     else:
@@ -47,6 +48,7 @@ def predict_fn(input_data, model):
     Return a two-dimensional NumPy array where the first columns are predictions
     and the remaining columns are the feature contributions (SHAP values) for that prediction.
     """
+    print(f"input_data: {input_data}")
     prediction = model.predict(input_data)
     feature_contribs = model.predict(input_data, pred_contribs=True, validate_features=False)
     output = np.hstack((prediction[:, np.newaxis], feature_contribs))
