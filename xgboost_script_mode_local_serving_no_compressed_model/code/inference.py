@@ -22,7 +22,7 @@ def model_fn(model_dir):
     """
     Deserialize and return fitted model.
     """
-    model_file = "xgboost-model"
+    model_file = "my-xgboost-model"
     booster = pkl.load(open(os.path.join(model_dir, model_file), "rb"))
     return booster
 

@@ -28,7 +28,7 @@ def do_inference_on_local_endpoint(predictor, libsvm_str):
 
 def main():
     xgb_inference_model = XGBoostModel(
-        model_data="file://model/model.tar.gz",
+        model_data="file://model/my-xgboost-model",
         role=DUMMY_IAM_ROLE,
         entry_point="inference.py",
         source_dir="./code",
