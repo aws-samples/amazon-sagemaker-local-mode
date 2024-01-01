@@ -56,8 +56,8 @@ def main():
     cifar10_estimator = PyTorch(entry_point='cifar10_pytorch.py',
                                 source_dir='./code',
                                 role=role,
-                                framework_version='1.10',
-                                py_version='py38',
+                                framework_version='2.1',
+                                py_version='py310',
                                 instance_count=1,
                                 instance_type='local',
                                 hyperparameters={
