@@ -33,7 +33,7 @@ def download_training_data():
 def do_inference_on_local_endpoint(predictor, testloader):
     print('Starting Inference on local mode endpoint')
     dataiter = iter(testloader)
-    images, labels = dataiter.next()
+    images, labels = next(dataiter)
 
     outputs = predictor.predict(images.numpy())
 
