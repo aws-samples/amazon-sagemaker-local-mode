@@ -3,7 +3,7 @@
 
 This repository contains examples and related resources showing you how to preprocess, train, debug your training script with breakpoints, and serve on your local machine using Amazon SageMaker Local mode for processing jobs, training and serving. 
 
-**New!** SageMaker Studio now supports local mode and Docker: https://aws.amazon.com/about-aws/whats-new/2023/12/sagemaker-studio-local-mode-docker/
+![](img/new.png)  SageMaker Studio now supports local mode and Docker: https://aws.amazon.com/about-aws/whats-new/2023/12/sagemaker-studio-local-mode-docker/
 
 ## Overview
 
