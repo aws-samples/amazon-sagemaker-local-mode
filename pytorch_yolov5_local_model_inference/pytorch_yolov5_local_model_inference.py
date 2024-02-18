@@ -32,8 +32,8 @@ def main():
         source_dir = './code',
         role=role,
         model_data=model_dir,
-        framework_version='1.8',
-        py_version='py3'
+        framework_version='2.1',
+        py_version='py310'
     )
 
     print('Deploying endpoint in local mode')
