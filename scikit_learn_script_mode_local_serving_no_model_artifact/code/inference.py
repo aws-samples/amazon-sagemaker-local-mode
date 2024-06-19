@@ -6,14 +6,13 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler(sys.stdout))
 
-
-# Perform prediction on the deserialized object, with the loaded model
+# Perform prediction on the deserialized object, with the dummy loaded model
 def predict_fn(input_object, model):
     logger.info("predict_fn")
     logger.info(f"input_object: {input_object}")
 
     response = np.average(input_object)
-    logger.info(f"returning response: {response}")
+    logger.info(f"returning response, average of inputs: {response}")
 
     return response
 
