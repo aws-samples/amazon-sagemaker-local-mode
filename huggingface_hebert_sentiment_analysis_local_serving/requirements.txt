@@ -3,4 +3,4 @@ pandas
 sagemaker>=2.0.0<3.0.0
 sagemaker[local]
 torch==1.13.1
-transformers==4.36.0
+transformers==4.38.0
