@@ -11,10 +11,16 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get -y update
 
-# pick the latest patch from:
-# apt-cache madison docker-ce | awk '{ print $3 }' | grep -i 20.10
-VERSION_STRING=5:20.10.24~3-0~ubuntu-jammy
-sudo apt-get install docker-ce-cli=$VERSION_STRING docker-compose-plugin -y
+# install docker cli and docker compose plugin
+sudo apt-get install docker-ce-cli docker-compose-plugin -y
+
+# disabling docker build kit, docker's build kit feature is not allowed in Studio
+export DOCKER_BUILDKIT=0
+
+# validate the Docker Client is able to access Docker Server at [unix:///docker/proxy.sock]
+if [ -z "${DOCKER_HOST}" ]; then
+  export DOCKER_HOST="unix:///docker/proxy.sock"
+fi
 
 # validate the Docker Client is able to access Docker Server at [unix:///docker/proxy.sock]
 docker version
